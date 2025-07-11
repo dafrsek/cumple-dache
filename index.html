@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Te invito a mi farra! - Cumple Dache</title>
+    <meta name="description" content="Invitación al cumpleaños con estética ochentera. ¡Mis felices 30!">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Monoton Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Sección 1 - Hero -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div style="width:100%;height:100%;position:absolute;inset:0;z-index:1;pointer-events:none;">
+                <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+                    <defs>
+                        <radialGradient id="fade" cx="50%" cy="60%" r="80%">
+                            <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+                            <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+                        </radialGradient>
+                        <radialGradient id="neonGlow" cx="50%" cy="80%" r="70%">
+                            <stop offset="0%" stop-color="#FF5CFF" stop-opacity="0.7"/>
+                            <stop offset="30%" stop-color="#8A2BE2" stop-opacity="0.4"/>
+                            <stop offset="60%" stop-color="#00FFFF" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+                        </radialGradient>
+                        <radialGradient id="discoSun" cx="50%" cy="32%" r="18%">
+                            <stop offset="0%" stop-color="#fff" stop-opacity="0.95"/>
+                            <stop offset="60%" stop-color="#fff" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                        </radialGradient>
+                        <radialGradient id="heroGlow" cx="50%" cy="50%" r="90%">
+                            <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+                            <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+                            <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+                            <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="1920" height="1080" fill="url(#fade)"/>
+                    <!-- Estrellas y brillitos tenues al fondo (muchas, dispersas y focalizadas en la parte superior y media) -->
+                    <g>
+                        <!-- Estrellas grandes y medianas animadas (originales) -->
+                        <circle class="brillo-animado brillo-1" cx="80" cy="60" r="4.5" fill="#fff" fill-opacity="0.45" />
+                        <circle class="brillo-animado brillo-2" cx="200" cy="100" r="3.2" fill="#fff" fill-opacity="0.32" />
+                        <circle class="brillo-animado brillo-3" cx="350" cy="180" r="4.8" fill="#8A2BE2" fill-opacity="0.28" />
+                        <circle class="brillo-animado brillo-4" cx="500" cy="90" r="4.1" fill="#00FFFF" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-5" cx="650" cy="70" r="3.7" fill="#fff" fill-opacity="0.29" />
+                        <circle class="brillo-animado brillo-6" cx="800" cy="150" r="4.3" fill="#fff" fill-opacity="0.27" />
+                        <circle class="brillo-animado brillo-7" cx="950" cy="60" r="3.5" fill="#FF5CFF" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-8" cx="1100" cy="120" r="3.9" fill="#fff" fill-opacity="0.25" />
+                        <circle class="brillo-animado brillo-9" cx="1250" cy="80" r="4.2" fill="#fff" fill-opacity="0.23" />
+                        <circle class="brillo-animado brillo-10" cx="1400" cy="200" r="4.6" fill="#fff" fill-opacity="0.28" />
+                        <circle class="brillo-animado brillo-11" cx="1550" cy="60" r="3.8" fill="#8A2BE2" fill-opacity="0.21" />
+                        <circle class="brillo-animado brillo-12" cx="1700" cy="110" r="4.1" fill="#fff" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-13" cx="1850" cy="90" r="3.6" fill="#fff" fill-opacity="0.19" />
+                        <circle class="brillo-animado brillo-14" cx="1800" cy="220" r="3.2" fill="#fff" fill-opacity="0.22" />
+                        <!-- Duplicados desplazados hacia abajo (segunda fila) -->
+                        <circle class="brillo-animado brillo-1" cx="80" cy="460" r="4.5" fill="#fff" fill-opacity="0.45" />
+                        <circle class="brillo-animado brillo-2" cx="200" cy="520" r="3.2" fill="#fff" fill-opacity="0.32" />
+                        <circle class="brillo-animado brillo-3" cx="350" cy="580" r="4.8" fill="#8A2BE2" fill-opacity="0.28" />
+                        <circle class="brillo-animado brillo-4" cx="500" cy="490" r="4.1" fill="#00FFFF" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-5" cx="650" cy="470" r="3.7" fill="#fff" fill-opacity="0.29" />
+                        <circle class="brillo-animado brillo-6" cx="800" cy="550" r="4.3" fill="#fff" fill-opacity="0.27" />
+                        <circle class="brillo-animado brillo-7" cx="950" cy="460" r="3.5" fill="#FF5CFF" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-8" cx="1100" cy="520" r="3.9" fill="#fff" fill-opacity="0.25" />
+                        <circle class="brillo-animado brillo-9" cx="1250" cy="480" r="4.2" fill="#fff" fill-opacity="0.23" />
+                        <circle class="brillo-animado brillo-10" cx="1400" cy="600" r="4.6" fill="#fff" fill-opacity="0.28" />
+                        <circle class="brillo-animado brillo-11" cx="1550" cy="460" r="3.8" fill="#8A2BE2" fill-opacity="0.21" />
+                        <circle class="brillo-animado brillo-12" cx="1700" cy="510" r="4.1" fill="#fff" fill-opacity="0.22" />
+                        <circle class="brillo-animado brillo-13" cx="1850" cy="490" r="3.6" fill="#fff" fill-opacity="0.19" />
+                        <circle class="brillo-animado brillo-14" cx="1800" cy="620" r="3.2" fill="#fff" fill-opacity="0.22" />
+                        <!-- El resto de estrellas pequeñas quedan fijas -->
+                        <circle cx="1800" cy="300" r="1.8" fill="#fff" fill-opacity="0.18" />
+                        <circle cx="300" cy="400" r="2.1" fill="#fff" fill-opacity="0.15" />
+                        <circle cx="500" cy="350" r="1.9" fill="#00FFFF" fill-opacity="0.13" />
+                        <circle cx="700" cy="280" r="1.7" fill="#fff" fill-opacity="0.14" />
+                        <circle cx="900" cy="320" r="2.2" fill="#fff" fill-opacity="0.16" />
+                        <circle cx="1100" cy="250" r="1.6" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="1300" cy="300" r="2.0" fill="#fff" fill-opacity="0.14" />
+                        <circle cx="1500" cy="350" r="1.7" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="1700" cy="400" r="2.3" fill="#fff" fill-opacity="0.15" />
+                        <circle cx="1900" cy="320" r="2.1" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="300" cy="600" r="2.4" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="600" cy="500" r="2.2" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="900" cy="600" r="2.5" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="1200" cy="500" r="2.3" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="1500" cy="600" r="2.1" fill="#fff" fill-opacity="0.13" />
+                        <circle cx="1800" cy="500" r="2.4" fill="#fff" fill-opacity="0.13" />
+                        <!-- Sparkles/destellos -->
+                        <g stroke="#fff" stroke-width="1.8" stroke-opacity="0.32">
+                            <line x1="200" y1="80" x2="210" y2="90" />
+                            <line x1="210" y1="80" x2="200" y2="90" />
+                            <line x1="800" y1="60" x2="810" y2="70" />
+                            <line x1="810" y1="60" x2="800" y2="70" />
+                            <line x1="1400" y1="100" x2="1410" y2="110" />
+                            <line x1="1410" y1="100" x2="1400" y2="110" />
+                            <line x1="1700" y1="60" x2="1710" y2="70" />
+                            <line x1="1710" y1="60" x2="1700" y2="70" />
+                            <line x1="400" y1="300" x2="410" y2="310" />
+                            <line x1="410" y1="300" x2="400" y2="310" />
+                            <line x1="1200" y1="400" x2="1210" y2="410" />
+                            <line x1="1210" y1="400" x2="1200" y2="410" />
+                        </g>
+                    </g>
+                    <!-- Glow suave detrás de letras y cuadrícula (más difuso y tenue, detrás de la cuadrícula) -->
+                    <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#heroGlow)" />
+                    <!-- Bola de disco/sol al fondo -->
+                    <ellipse cx="960" cy="350" rx="210" ry="110" fill="url(#discoSun)" />
+                    <!-- Glow difuminado sobre el suelo -->
+                    <ellipse cx="960" cy="1050" rx="900" ry="220" fill="url(#neonGlow)" />
+                    <!-- Cuadrícula muy ancha, base alineada, líneas horizontales en perspectiva, verticales a un solo punto de fuga un poco más alto (y=540) -->
+                    <g stroke="#fff" stroke-opacity="0.13" stroke-width="1.1">
+                        <!-- Líneas horizontales en perspectiva auténtica -->
+                        <line x1="-5760" y1="1080" x2="7680" y2="1080" />
+                        <line x1="-4800" y1="970" x2="6720" y2="970" />
+                        <line x1="-3840" y1="880" x2="5760" y2="880" />
+                        <line x1="-3200" y1="820" x2="5120" y2="820" />
+                        <line x1="-2560" y1="770" x2="4480" y2="770" />
+                        <line x1="-1920" y1="730" x2="3840" y2="730" />
+                        <line x1="-1280" y1="700" x2="3200" y2="700" />
+                        <line x1="-640" y1="680" x2="2560" y2="680" />
+                        <line x1="0" y1="670" x2="1920" y2="670" />
+                        <line x1="320" y1="660" x2="1600" y2="660" />
+                        <line x1="640" y1="650" x2="1280" y2="650" />
+                        <line x1="800" y1="640" x2="1120" y2="640" />
+                        <line x1="880" y1="630" x2="1040" y2="630" />
+                        <line x1="920" y1="620" x2="1000" y2="620" />
+                        <line x1="940" y1="610" x2="980" y2="610" />
+                        <line x1="950" y1="600" x2="970" y2="600" />
+                        <line x1="955" y1="590" x2="965" y2="590" />
+                        <line x1="958" y1="580" x2="962" y2="580" />
+                        <line x1="960" y1="570" x2="960" y2="570" />
+                        <!-- Líneas verticales (muchas, convergiendo a un solo punto de fuga más alto: 960, 540) -->
+                        <line x1="-5760" y1="1080" x2="960" y2="540" />
+                        <line x1="-5440" y1="1080" x2="960" y2="540" />
+                        <line x1="-5120" y1="1080" x2="960" y2="540" />
+                        <line x1="-4800" y1="1080" x2="960" y2="540" />
+                        <line x1="-4480" y1="1080" x2="960" y2="540" />
+                        <line x1="-4160" y1="1080" x2="960" y2="540" />
+                        <line x1="-3840" y1="1080" x2="960" y2="540" />
+                        <line x1="-3520" y1="1080" x2="960" y2="540" />
+                        <line x1="-3200" y1="1080" x2="960" y2="540" />
+                        <line x1="-2880" y1="1080" x2="960" y2="540" />
+                        <line x1="-2560" y1="1080" x2="960" y2="540" />
+                        <line x1="-2240" y1="1080" x2="960" y2="540" />
+                        <line x1="-1920" y1="1080" x2="960" y2="540" />
+                        <line x1="-1600" y1="1080" x2="960" y2="540" />
+                        <line x1="-1280" y1="1080" x2="960" y2="540" />
+                        <line x1="-960" y1="1080" x2="960" y2="540" />
+                        <line x1="-640" y1="1080" x2="960" y2="540" />
+                        <line x1="-320" y1="1080" x2="960" y2="540" />
+                        <line x1="0" y1="1080" x2="960" y2="540" />
+                        <line x1="320" y1="1080" x2="960" y2="540" />
+                        <line x1="640" y1="1080" x2="960" y2="540" />
+                        <line x1="960" y1="1080" x2="960" y2="540" />
+                        <line x1="1280" y1="1080" x2="960" y2="540" />
+                        <line x1="1600" y1="1080" x2="960" y2="540" />
+                        <line x1="1920" y1="1080" x2="960" y2="540" />
+                        <line x1="2240" y1="1080" x2="960" y2="540" />
+                        <line x1="2560" y1="1080" x2="960" y2="540" />
+                        <line x1="2880" y1="1080" x2="960" y2="540" />
+                        <line x1="3200" y1="1080" x2="960" y2="540" />
+                        <line x1="3520" y1="1080" x2="960" y2="540" />
+                        <line x1="3840" y1="1080" x2="960" y2="540" />
+                        <line x1="4160" y1="1080" x2="960" y2="540" />
+                        <line x1="4480" y1="1080" x2="960" y2="540" />
+                        <line x1="4800" y1="1080" x2="960" y2="540" />
+                        <line x1="5120" y1="1080" x2="960" y2="540" />
+                        <line x1="5440" y1="1080" x2="960" y2="540" />
+                        <line x1="5760" y1="1080" x2="960" y2="540" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <img src="TextoHero.png" alt="¡Te invito a mi farra!" class="mx-auto w-full max-w-3xl md:max-w-4xl drop-shadow-2xl animate-fade-in-up" style="object-fit: contain;" />
+            <div class="scroll-indicator mt-8">
+                <p class="text-lg text-gray-400 mb-2 font-retrostereo">Desliza para más info</p>
+                <div class="scroll-arrow" style="color: #FF5CFF; font-size: 2rem;">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2 - Detalles del evento -->
+    <section id="event-details" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+          <defs>
+            <radialGradient id="eventFade" cx="50%" cy="60%" r="80%">
+              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="eventGlow" cx="50%" cy="50%" r="90%">
+              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#eventFade)"/>
+          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#eventGlow)" />
+        </svg>
+      </div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="max-w-4xl mx-auto">
+          <div class="font-retrostereo retro-classic-title text-5xl md:text-6xl mb-6 drop-shadow-[0_0_30px_#00fff7]">Detalles del Evento</div>
+          <div class="font-retrostereo retro-classic-banner text-xl md:text-2xl px-6 py-2 inline-block rounded-lg bg-gradient-to-r from-pink-500 to-orange-400 shadow-lg mb-4 animate-fade-in-up">¡Mis felices 30!</div>
+          <div class="font-retrostereo retro-classic-subtitle text-lg md:text-2xl mb-8 text-cyan-300 drop-shadow-[0_0_10px_#00fff7]">Sábado 11 de octubre de 2025 &nbsp;|&nbsp; 8:00 PM &nbsp;|&nbsp; Cerca a Parque Centenario, Maicao</div>
+          <div class="w-32 h-1 mx-auto mb-10 bg-gradient-to-r from-pink-500 via-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
+          <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+              <div class="retro-classic-icon text-5xl mb-4">📅</div>
+              <div class="font-retrostereo text-xl mb-2 text-pink-400">Fecha y Hora</div>
+              <div class="font-orbitron text-lg">Sábado 11 de octubre de 2025<br><span class="font-bold text-orange-400">8:00 PM</span></div>
+            </div>
+            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+              <div class="retro-classic-icon text-5xl mb-4">📍</div>
+              <div class="font-retrostereo text-xl mb-2 text-pink-400">Lugar</div>
+              <div class="font-orbitron text-lg">Cerca a Parque Centenario<br><span class="text-gray-400">Maicao, La Guajira</span></div>
+            </div>
+            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+              <div class="retro-classic-icon text-5xl mb-4">👗</div>
+              <div class="font-retrostereo text-xl mb-2 text-pink-400">Dress Code</div>
+              <div class="font-orbitron text-lg">Disco/Ochentera<br><span class="text-gray-400">¡Lentejuelas y neón!</span></div>
+            </div>
+          </div>
+          <div class="w-32 h-1 mx-auto mb-10 bg-gradient-to-r from-pink-500 via-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
+          <div class="font-retrostereo retro-classic-title text-3xl md:text-4xl mb-6 drop-shadow-[0_0_20px_#00fff7]">Inspiración Ochentera</div>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💿</div>Disco Vibes</div>
+            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💡</div>Neon Lights</div>
+            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-green-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">👚</div>Retro Fashion</div>
+            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">🎉</div>Party Time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3 - Cuenta regresiva -->
+    <section id="countdown" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+          <defs>
+            <radialGradient id="countdownFade" cx="50%" cy="60%" r="80%">
+              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="countdownGlow" cx="50%" cy="50%" r="90%">
+              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#countdownFade)"/>
+          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#countdownGlow)" />
+        </svg>
+      </div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h2 class="font-retrostereo retro-classic-title mb-12 text-5xl md:text-6xl drop-shadow-[0_0_30px_#00fff7]">¡Falta poco!</h2>
+        <div class="countdown-container flex justify-center gap-8 bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 mx-auto w-fit animate-fade-in-up">
+          <div class="countdown-item flex flex-col items-center">
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-pink-400 drop-shadow-[0_0_20px_#FF5CFF]" id="days">00</div>
+            <div class="countdown-label font-orbitron text-lg mt-2">Días</div>
+          </div>
+          <div class="countdown-item flex flex-col items-center">
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-cyan-400 drop-shadow-[0_0_20px_#00FFF7]" id="hours">00</div>
+            <div class="countdown-label font-orbitron text-lg mt-2">Horas</div>
+          </div>
+          <div class="countdown-item flex flex-col items-center">
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-green-400 drop-shadow-[0_0_20px_#39FF14]" id="minutes">00</div>
+            <div class="countdown-label font-orbitron text-lg mt-2">Minutos</div>
+          </div>
+          <div class="countdown-item flex flex-col items-center">
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-yellow-300 drop-shadow-[0_0_20px_#FFFF00]" id="seconds">00</div>
+            <div class="countdown-label font-orbitron text-lg mt-2">Segundos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4 - Mensaje personal -->
+    <section id="personal-message" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+          <defs>
+            <radialGradient id="personalFade" cx="50%" cy="60%" r="80%">
+              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="personalGlow" cx="50%" cy="50%" r="90%">
+              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#personalFade)"/>
+          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#personalGlow)" />
+        </svg>
+      </div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="max-w-3xl mx-auto bg-black/60 border-2 border-pink-400 rounded-2xl shadow-lg p-12 animate-fade-in-up">
+          <div class="gift-icon mb-8 text-6xl drop-shadow-[0_0_20px_#FF5CFF]">🎁</div>
+          <h2 class="font-retrostereo retro-classic-title mb-8 text-4xl md:text-5xl text-pink-400 drop-shadow-[0_0_20px_#FF5CFF]">Lo mío son los regalos del alma</h2>
+          <p class="text-2xl md:text-3xl text-cyan-200 font-orbitron">como tu compañía :)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 5 - Galería -->
+    <section id="gallery" class="min-h-screen py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+          <defs>
+            <radialGradient id="galleryFade" cx="50%" cy="60%" r="80%">
+              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="galleryGlow" cx="50%" cy="50%" r="90%">
+              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#galleryFade)"/>
+          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#galleryGlow)" />
+        </svg>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <h2 class="font-retrostereo retro-classic-title mb-12 text-5xl md:text-6xl drop-shadow-[0_0_30px_#00fff7]">Galería Ochentera</h2>
+        <div class="gallery-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="gallery-item bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#FF5CFF]">Disco Ball</span>
+          </div>
+          <div class="gallery-item bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#00FFF7]">Neon Signs</span>
+          </div>
+          <div class="gallery-item bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-green-400/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#39FF14]">Retro Dance</span>
+          </div>
+          <div class="gallery-item bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#FF6B35]">Party Lights</span>
+          </div>
+          <div class="gallery-item bg-gradient-to-br from-purple-500/60 to-pink-600/60 border-2 border-purple-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-purple-400/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#B388FF]">80s Fashion</span>
+          </div>
+          <div class="gallery-item bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-2 border-blue-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-blue-400/40 transition-all duration-300">
+            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#00FFF7]">Synthwave</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 6 - Formulario RSVP -->
+    <section id="rsvp" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+          <defs>
+            <radialGradient id="rsvpFade" cx="50%" cy="60%" r="80%">
+              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="rsvpGlow" cx="50%" cy="50%" r="90%">
+              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
+              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
+              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
+              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#rsvpFade)"/>
+          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#rsvpGlow)" />
+        </svg>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-2xl mx-auto bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-12 animate-fade-in-up">
+                <h2 class="font-retrostereo retro-classic-title mb-12 text-4xl md:text-5xl text-cyan-300 drop-shadow-[0_0_20px_#00FFF7]">¿Vienes?</h2>
+                
+                <form id="rsvp-form" class="space-y-8">
+                    <div>
+                        <label for="name" class="block text-xl font-bold mb-3 neon-text-cyan font-retrostereo">Nombre</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required
+                            class="w-full px-6 py-4 bg-black/70 border-2 border-cyan-500 rounded-lg text-white text-lg focus:border-pink-500 focus:outline-none transition-colors font-orbitron shadow-md"
+                            placeholder="Tu nombre completo"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xl font-bold mb-3 neon-text-green font-retrostereo">¿Asistirás?</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="attendance" value="yes" required class="w-5 h-5 text-pink-500 accent-pink-500">
+                                <span class="text-lg font-orbitron">Sí voy</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="attendance" value="definitely" required class="w-5 h-5 text-pink-500 accent-pink-500">
+                                <span class="text-lg font-orbitron">¡Claro que voy!</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="comment" class="block text-xl font-bold mb-3 neon-text-pink font-retrostereo">Comentario (opcional)</label>
+                        <textarea 
+                            id="comment" 
+                            name="comment" 
+                            rows="4"
+                            class="w-full px-6 py-4 bg-black/70 border-2 border-pink-500 rounded-lg text-white text-lg focus:border-cyan-500 focus:outline-none transition-colors resize-none font-orbitron shadow-md"
+                            placeholder="¿Algo que quieras decirme?"
+                        ></textarea>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full py-4 px-8 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-xl font-bold rounded-lg transition-all duration-300 transform hover:scale-105 neon-button shadow-lg"
+                    >
+                        Confirmar Asistencia
+                    </button>
+                </form>
+                
+                <div id="success-message" class="hidden mt-8 p-6 bg-green-900/50 border-2 border-green-500 rounded-lg text-center">
+                    <p class="text-2xl font-bold text-green-400">¡Gracias por confirmar!</p>
+                    <p class="text-lg text-gray-300 mt-2">Nos vemos en la farra 🎉</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
