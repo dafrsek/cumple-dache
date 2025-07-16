@@ -12,10 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Monoton Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Monoton&family=Pacifico&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -23,8 +20,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body class="bg-black text-white overflow-x-hidden">
-    <!-- Sección 1 - Hero -->
+<body class="bg-black text-white overflow-x-hidden relative">
+    <!-- Sección 1 - Hero (restaurado al original) -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div style="width:100%;height:100%;position:absolute;inset:0;z-index:1;pointer-events:none;">
@@ -189,215 +186,167 @@
                 </svg>
             </div>
         </div>
-        <div class="relative z-10 text-center px-4">
+        <!-- Disco ball GIF hanging from the ceiling with string behind -->
+        <!-- String: long, behind the ball -->
+        <div class="absolute left-1/2 top-0 z-10" style="transform: translateX(-50%); height: 300px; width: 1px; background: rgba(229,231,235,0.7);"></div>
+        <!-- Ball: above the string -->
+        <div class="absolute left-1/2 z-20 flex flex-col items-center w-44 md:w-[260px]" style="transform: translateX(-50%); top: 120px;">
+            <img src="discoBall.gif" alt="Disco Ball" class="w-36 md:w-[260px] h-auto drop-shadow-xl" style="pointer-events:none;" />
+        </div>
+        <div class="relative z-30 text-center px-4">
             <img src="TextoHero.png" alt="¡Te invito a mi farra!" class="mx-auto w-full max-w-3xl md:max-w-4xl drop-shadow-2xl animate-fade-in-up" style="object-fit: contain;" />
             <div class="scroll-indicator mt-8">
                 <p class="text-lg text-gray-400 mb-2 font-retrostereo">Desliza para más info</p>
-                <div class="scroll-arrow" style="color: #FF5CFF; font-size: 2rem;">↓</div>
+                <div class="scroll-arrow">↓</div>
             </div>
         </div>
     </section>
 
-    <!-- Sección 2 - Detalles del evento -->
-    <section id="event-details" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-          <defs>
-            <radialGradient id="eventFade" cx="50%" cy="60%" r="80%">
-              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
-            </radialGradient>
-            <radialGradient id="eventGlow" cx="50%" cy="50%" r="90%">
-              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
-              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
-              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
-              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1920" height="1080" fill="url(#eventFade)"/>
-          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#eventGlow)" />
+    <!-- Detalles del evento -->
+    <section id="event-details" class="min-h-screen flex items-center justify-center relative overflow-hidden retro-section-bg">
+      <div class="absolute inset-0 section-brillitos">
+        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="300" cy="200" r="2.5" fill="#00FFFF" fill-opacity="0.5" />
+          <circle cx="1600" cy="300" r="2.2" fill="#FF5CFF" fill-opacity="0.5" />
         </svg>
       </div>
       <div class="container mx-auto px-4 relative z-10 text-center">
         <div class="max-w-4xl mx-auto">
-          <div class="font-retrostereo retro-classic-title text-5xl md:text-6xl mb-6 drop-shadow-[0_0_30px_#00fff7]">Detalles del Evento</div>
-          <div class="font-retrostereo retro-classic-banner text-xl md:text-2xl px-6 py-2 inline-block rounded-lg bg-gradient-to-r from-pink-500 to-orange-400 shadow-lg mb-4 animate-fade-in-up">¡Mis felices 30!</div>
-          <div class="font-retrostereo retro-classic-subtitle text-lg md:text-2xl mb-8 text-cyan-300 drop-shadow-[0_0_10px_#00fff7]">Sábado 11 de octubre de 2025 &nbsp;|&nbsp; 8:00 PM &nbsp;|&nbsp; Cerca a Parque Centenario, Maicao</div>
-          <div class="w-32 h-1 mx-auto mb-10 bg-gradient-to-r from-pink-500 via-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
+          <div class="font-retrostereo retro-title-glow text-5xl md:text-6xl mb-6">Detalles del Evento</div>
+          <div class="font-retrostereo retro-classic-banner text-xl md:text-2xl px-6 py-2 inline-block rounded-lg shadow-lg mb-4 animate-fade-in-up">¡Mis felices 30!</div>
+          <div class="font-retrostereo retro-subtitle-glow text-lg md:text-2xl mb-8">Sábado 11 de octubre de 2025 &nbsp;|&nbsp; 8:00 PM &nbsp;|&nbsp; Cerca a Parque Centenario, Maicao</div>
+          <div class="w-32 h-1 mx-auto mb-10 retro-classic-divider"></div>
           <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+            <div class="retro-card hover:shadow-pink-500/40 transition-all duration-300">
               <div class="retro-classic-icon text-5xl mb-4">📅</div>
-              <div class="font-retrostereo text-xl mb-2 text-pink-400">Fecha y Hora</div>
-              <div class="font-orbitron text-lg">Sábado 11 de octubre de 2025<br><span class="font-bold text-orange-400">8:00 PM</span></div>
+              <div class="font-retrostereo text-xl mb-2 neon-text-pink">Fecha y Hora</div>
+              <div class="font-orbitron text-lg">Sábado 11 de octubre de 2025<br><span class="font-bold neon-text-cyan">8:00 PM</span></div>
             </div>
-            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+            <div class="retro-card hover:shadow-pink-500/40 transition-all duration-300">
               <div class="retro-classic-icon text-5xl mb-4">📍</div>
-              <div class="font-retrostereo text-xl mb-2 text-pink-400">Lugar</div>
+              <div class="font-retrostereo text-xl mb-2 neon-text-cyan">Lugar</div>
               <div class="font-orbitron text-lg">Cerca a Parque Centenario<br><span class="text-gray-400">Maicao, La Guajira</span></div>
             </div>
-            <div class="retro-classic-card bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 hover:shadow-pink-500/40 transition-all duration-300">
+            <div class="retro-card hover:shadow-pink-500/40 transition-all duration-300">
               <div class="retro-classic-icon text-5xl mb-4">👗</div>
-              <div class="font-retrostereo text-xl mb-2 text-pink-400">Dress Code</div>
+              <div class="font-retrostereo text-xl mb-2 neon-text-green">Dress Code</div>
               <div class="font-orbitron text-lg">Disco/Ochentera<br><span class="text-gray-400">¡Lentejuelas y neón!</span></div>
             </div>
           </div>
-          <div class="w-32 h-1 mx-auto mb-10 bg-gradient-to-r from-pink-500 via-cyan-400 to-purple-500 rounded-full animate-pulse"></div>
-          <div class="font-retrostereo retro-classic-title text-3xl md:text-4xl mb-6 drop-shadow-[0_0_20px_#00fff7]">Inspiración Ochentera</div>
+          <div class="w-32 h-1 mx-auto mb-10 retro-classic-divider"></div>
+          <div class="font-retrostereo retro-title-glow text-3xl md:text-4xl mb-6">Inspiración Ochentera</div>
           <div class="grid md:grid-cols-4 gap-6">
-            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💿</div>Disco Vibes</div>
-            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💡</div>Neon Lights</div>
-            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-green-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">👚</div>Retro Fashion</div>
-            <div class="font-orbitron retro-classic-card bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">🎉</div>Party Time</div>
+            <div class="font-orbitron retro-card bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💿</div>Disco Vibes</div>
+            <div class="font-orbitron retro-card bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">💡</div>Neon Lights</div>
+            <div class="font-orbitron retro-card bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-green-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">👚</div>Retro Fashion</div>
+            <div class="font-orbitron retro-card bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-xl shadow-md p-6 hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300"><div class="retro-classic-icon text-3xl mb-2">🎉</div>Party Time</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección 3 - Cuenta regresiva -->
-    <section id="countdown" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-          <defs>
-            <radialGradient id="countdownFade" cx="50%" cy="60%" r="80%">
-              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
-            </radialGradient>
-            <radialGradient id="countdownGlow" cx="50%" cy="50%" r="90%">
-              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
-              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
-              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
-              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1920" height="1080" fill="url(#countdownFade)"/>
-          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#countdownGlow)" />
+    <!-- Cuenta regresiva -->
+    <section id="countdown" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden retro-section-bg">
+      <div class="absolute inset-0 section-brillitos">
+        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="500" cy="200" r="2.5" fill="#FFFF00" fill-opacity="0.5" />
+          <circle cx="1200" cy="300" r="2.2" fill="#00FFFF" fill-opacity="0.5" />
         </svg>
       </div>
       <div class="container mx-auto px-4 relative z-10 text-center">
-        <h2 class="font-retrostereo retro-classic-title mb-12 text-5xl md:text-6xl drop-shadow-[0_0_30px_#00fff7]">¡Falta poco!</h2>
+        <h2 class="font-retrostereo retro-title-glow mb-12 text-5xl md:text-6xl">¡Falta poco!</h2>
         <div class="countdown-container flex justify-center gap-8 bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 mx-auto w-fit animate-fade-in-up">
           <div class="countdown-item flex flex-col items-center">
-            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-pink-400 drop-shadow-[0_0_20px_#FF5CFF]" id="days">00</div>
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo neon-text-pink" id="days">00</div>
             <div class="countdown-label font-orbitron text-lg mt-2">Días</div>
           </div>
           <div class="countdown-item flex flex-col items-center">
-            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-cyan-400 drop-shadow-[0_0_20px_#00FFF7]" id="hours">00</div>
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo neon-text-cyan" id="hours">00</div>
             <div class="countdown-label font-orbitron text-lg mt-2">Horas</div>
           </div>
           <div class="countdown-item flex flex-col items-center">
-            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-green-400 drop-shadow-[0_0_20px_#39FF14]" id="minutes">00</div>
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo neon-text-green" id="minutes">00</div>
             <div class="countdown-label font-orbitron text-lg mt-2">Minutos</div>
           </div>
           <div class="countdown-item flex flex-col items-center">
-            <div class="countdown-number text-6xl md:text-7xl font-retrostereo text-yellow-300 drop-shadow-[0_0_20px_#FFFF00]" id="seconds">00</div>
+            <div class="countdown-number text-6xl md:text-7xl font-retrostereo neon-text-yellow" id="seconds">00</div>
             <div class="countdown-label font-orbitron text-lg mt-2">Segundos</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección 4 - Mensaje personal -->
-    <section id="personal-message" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-          <defs>
-            <radialGradient id="personalFade" cx="50%" cy="60%" r="80%">
-              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
-            </radialGradient>
-            <radialGradient id="personalGlow" cx="50%" cy="50%" r="90%">
-              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
-              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
-              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
-              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1920" height="1080" fill="url(#personalFade)"/>
-          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#personalGlow)" />
+    <!-- Mensaje personal -->
+    <section id="personal-message" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden retro-section-bg">
+      <div class="absolute inset-0 section-brillitos">
+        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="800" cy="200" r="2.5" fill="#FF5CFF" fill-opacity="0.5" />
+          <circle cx="1500" cy="300" r="2.2" fill="#00FFFF" fill-opacity="0.5" />
         </svg>
       </div>
       <div class="container mx-auto px-4 relative z-10 text-center">
-        <div class="max-w-3xl mx-auto bg-black/60 border-2 border-pink-400 rounded-2xl shadow-lg p-12 animate-fade-in-up">
-          <div class="gift-icon mb-8 text-6xl drop-shadow-[0_0_20px_#FF5CFF]">🎁</div>
-          <h2 class="font-retrostereo retro-classic-title mb-8 text-4xl md:text-5xl text-pink-400 drop-shadow-[0_0_20px_#FF5CFF]">Lo mío son los regalos del alma</h2>
-          <p class="text-2xl md:text-3xl text-cyan-200 font-orbitron">como tu compañía :)</p>
+        <div class="max-w-3xl mx-auto retro-card p-12 animate-fade-in-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #23243a 100%); border: 2.5px dashed #00FFFF;">
+          <div class="gift-icon mb-8">🎁</div>
+          <h2 class="font-retrostereo retro-title-glow mb-8 text-4xl md:text-5xl neon-text-pink">Lo mío son los regalos del alma</h2>
+          <p class="text-2xl md:text-3xl text-cyan-200 font-orbitron mb-8">como tu compañía :)</p>
+          <div class="mt-8">
+            <span class="font-pacifico text-3xl text-yellow-300">Dache</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección 5 - Galería -->
-    <section id="gallery" class="min-h-screen py-20 relative overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-          <defs>
-            <radialGradient id="galleryFade" cx="50%" cy="60%" r="80%">
-              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
-            </radialGradient>
-            <radialGradient id="galleryGlow" cx="50%" cy="50%" r="90%">
-              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
-              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
-              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
-              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1920" height="1080" fill="url(#galleryFade)"/>
-          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#galleryGlow)" />
+    <!-- Galería ochentera -->
+    <section id="gallery" class="min-h-screen py-20 relative overflow-hidden retro-section-bg">
+      <div class="absolute inset-0 section-brillitos">
+        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="600" cy="200" r="2.5" fill="#FF5CFF" fill-opacity="0.5" />
+          <circle cx="1700" cy="300" r="2.2" fill="#00FFFF" fill-opacity="0.5" />
         </svg>
       </div>
       <div class="container mx-auto px-4 relative z-10">
-        <h2 class="font-retrostereo retro-classic-title mb-12 text-5xl md:text-6xl drop-shadow-[0_0_30px_#00fff7]">Galería Ochentera</h2>
+        <h2 class="font-retrostereo retro-title-glow mb-12 text-5xl md:text-6xl">Galería Ochentera</h2>
         <div class="gallery-grid grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="gallery-item bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#FF5CFF]">Disco Ball</span>
+          <!-- Ejemplo de imagen con filtro CRT/glitch y overlay ochentero -->
+          <div class="gallery-item bg-gradient-to-br from-pink-500/60 to-purple-600/60 border-2 border-pink-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-pink-500/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80" alt="Disco Ball" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-pink text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#FF5CFF" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="#FF5CFF"/></svg> Disco Ball</span>
           </div>
-          <div class="gallery-item bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#00FFF7]">Neon Signs</span>
+          <div class="gallery-item bg-gradient-to-br from-cyan-500/60 to-blue-600/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Neon Signs" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-cyan text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="8" rx="2" stroke="#00FFFF" stroke-width="2"/><rect x="8" y="10" width="8" height="4" fill="#00FFFF"/></svg> Neon</span>
           </div>
-          <div class="gallery-item bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-green-400/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#39FF14]">Retro Dance</span>
+          <div class="gallery-item bg-gradient-to-br from-green-500/60 to-yellow-500/60 border-2 border-green-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-green-400/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Retro Dance" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-green text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="6" stroke="#39FF14" stroke-width="2"/><rect x="10" y="10" width="4" height="4" fill="#39FF14"/></svg> Dance</span>
           </div>
-          <div class="gallery-item bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#FF6B35]">Party Lights</span>
+          <div class="gallery-item bg-gradient-to-br from-orange-500/60 to-red-600/60 border-2 border-orange-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-orange-400/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Party Lights" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-yellow text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><polygon points="12,2 15,22 9,22" stroke="#FFFF00" stroke-width="2" fill="#FFFF00"/></svg> Party</span>
           </div>
-          <div class="gallery-item bg-gradient-to-br from-purple-500/60 to-pink-600/60 border-2 border-purple-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-purple-400/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#B388FF]">80s Fashion</span>
+          <div class="gallery-item bg-gradient-to-br from-purple-500/60 to-pink-600/60 border-2 border-purple-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-purple-400/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="80s Fashion" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-purple text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="6" stroke="#8A2BE2" stroke-width="2"/><rect x="10" y="10" width="4" height="4" fill="#8A2BE2"/></svg> Fashion</span>
           </div>
-          <div class="gallery-item bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-2 border-blue-400 rounded-2xl shadow-lg p-8 flex items-center justify-center hover:scale-105 hover:shadow-blue-400/40 transition-all duration-300">
-            <span class="font-orbitron text-2xl text-white drop-shadow-[0_0_10px_#00FFF7]">Synthwave</span>
+          <div class="gallery-item bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-2 border-blue-400 rounded-2xl shadow-lg p-0 flex items-center justify-center hover:scale-105 hover:shadow-blue-400/40 transition-all duration-300 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?auto=format&fit=crop&w=400&q=80" alt="Synthwave" class="w-full h-64 object-cover object-center filter-crt" />
+            <span class="absolute top-2 left-2 bg-black/60 px-3 py-1 rounded-lg neon-text-cyan text-lg font-orbitron flex items-center gap-2"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="8" rx="2" stroke="#00FFFF" stroke-width="2"/><rect x="8" y="10" width="8" height="4" fill="#00FFFF"/></svg> Synthwave</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección 6 - Formulario RSVP -->
-    <section id="rsvp" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-          <defs>
-            <radialGradient id="rsvpFade" cx="50%" cy="60%" r="80%">
-              <stop offset="0%" stop-color="#2a003f" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="1"/>
-            </radialGradient>
-            <radialGradient id="rsvpGlow" cx="50%" cy="50%" r="90%">
-              <stop offset="0%" stop-color="#FFB3FF" stop-opacity="0.13"/>
-              <stop offset="40%" stop-color="#B388FF" stop-opacity="0.08"/>
-              <stop offset="70%" stop-color="#A7FFFF" stop-opacity="0.07"/>
-              <stop offset="90%" stop-color="#A7FFFF" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#0d0d0d" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1920" height="1080" fill="url(#rsvpFade)"/>
-          <ellipse cx="960" cy="540" rx="2000" ry="700" fill="url(#rsvpGlow)" />
+    <!-- Formulario RSVP -->
+    <section id="rsvp" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden retro-section-bg">
+      <div class="absolute inset-0 section-brillitos">
+        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="900" cy="200" r="2.5" fill="#FF5CFF" fill-opacity="0.5" />
+          <circle cx="1200" cy="300" r="2.2" fill="#00FFFF" fill-opacity="0.5" />
         </svg>
       </div>
       <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-2xl mx-auto bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-lg p-12 animate-fade-in-up">
-                <h2 class="font-retrostereo retro-classic-title mb-12 text-4xl md:text-5xl text-cyan-300 drop-shadow-[0_0_20px_#00FFF7]">¿Vienes?</h2>
+            <div class="max-w-2xl mx-auto retro-card p-12 animate-fade-in-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #23243a 100%); border: 2.5px solid #00FFFF;">
+                <h2 class="font-retrostereo retro-title-glow mb-12 text-4xl md:text-5xl neon-text-cyan">¿Vienes?</h2>
                 
                 <form id="rsvp-form" class="space-y-8">
                     <div>
@@ -407,7 +356,7 @@
                             id="name" 
                             name="name" 
                             required
-                            class="w-full px-6 py-4 bg-black/70 border-2 border-cyan-500 rounded-lg text-white text-lg focus:border-pink-500 focus:outline-none transition-colors font-orbitron shadow-md"
+                            class="w-full px-6 py-4 retro-input text-lg shadow-md"
                             placeholder="Tu nombre completo"
                         >
                     </div>
@@ -416,11 +365,11 @@
                         <label class="block text-xl font-bold mb-3 neon-text-green font-retrostereo">¿Asistirás?</label>
                         <div class="space-y-3">
                             <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="radio" name="attendance" value="yes" required class="w-5 h-5 text-pink-500 accent-pink-500">
+                                <input type="radio" name="attendance" value="yes" required class="w-5 h-5 accent-pink-500 retro-input">
                                 <span class="text-lg font-orbitron">Sí voy</span>
                             </label>
                             <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="radio" name="attendance" value="definitely" required class="w-5 h-5 text-pink-500 accent-pink-500">
+                                <input type="radio" name="attendance" value="definitely" required class="w-5 h-5 accent-pink-500 retro-input">
                                 <span class="text-lg font-orbitron">¡Claro que voy!</span>
                             </label>
                         </div>
@@ -432,14 +381,14 @@
                             id="comment" 
                             name="comment" 
                             rows="4"
-                            class="w-full px-6 py-4 bg-black/70 border-2 border-pink-500 rounded-lg text-white text-lg focus:border-cyan-500 focus:outline-none transition-colors resize-none font-orbitron shadow-md"
+                            class="w-full px-6 py-4 retro-input text-lg shadow-md resize-none"
                             placeholder="¿Algo que quieras decirme?"
                         ></textarea>
                     </div>
                     
                     <button 
                         type="submit"
-                        class="w-full py-4 px-8 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-xl font-bold rounded-lg transition-all duration-300 transform hover:scale-105 neon-button shadow-lg"
+                        class="w-full py-4 px-8 retro-btn neon-button"
                     >
                         Confirmar Asistencia
                     </button>

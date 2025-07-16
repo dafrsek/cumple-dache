@@ -572,7 +572,7 @@ section {
 
 /* Cursor personalizado */
 body {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23FF5CFF" stroke="%23FFFFFF" stroke-width="2"/></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="6" fill="%2300FFFF" stroke="%23FF5CFF" stroke-width="3"/><circle cx="16" cy="16" r="6" fill="%23FF5CFF"/></svg>'), auto;
 }
 
 /* Efecto de selección de texto */
@@ -828,4 +828,82 @@ body {
   background: #FF6B35;
   border-radius: 2px;
   margin: 1.5em auto 2em auto;
+} 
+
+/* Filtro CRT/Glitch para imágenes ochenteras */
+.filter-crt {
+  filter: contrast(1.2) brightness(0.9) grayscale(0.08) saturate(1.2) drop-shadow(0 0 8px #00FFFF88);
+  position: relative;
+}
+.filter-crt::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 4px);
+  mix-blend-mode: screen;
+}
+
+/* Animación de glitch en títulos */
+.glitch {
+  position: relative;
+  color: #fff;
+  animation: glitch-skew 1.2s infinite linear alternate-reverse;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #FF5CFF;
+  z-index: 1;
+  opacity: 0.7;
+}
+.glitch::after {
+  color: #00FFFF;
+  z-index: 2;
+  opacity: 0.5;
+  left: 2px;
+  top: 2px;
+}
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(2deg, 1deg); }
+  40% { transform: skew(-2deg, -1deg); }
+  60% { transform: skew(1deg, -2deg); }
+  80% { transform: skew(-1deg, 2deg); }
+  100% { transform: skew(0deg); }
+}
+
+/* Animación de escaneo láser en cards/botones */
+.laser-scan {
+  position: relative;
+  overflow: hidden;
+}
+.laser-scan::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 60%, #00FFFF44 80%, transparent 100%);
+  animation: laser-scan-move 2.5s infinite linear;
+  pointer-events: none;
+}
+@keyframes laser-scan-move {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Animación spin lenta */
+.animate-spin-slow {
+  animation: disco-spin 8s linear infinite;
+}
+
+/* Parpadeo neón en íconos */
+.neon-flicker-icon {
+  animation: neon-flicker 2.5s infinite alternate;
 } 
