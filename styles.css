@@ -597,7 +597,7 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
     width: 350px;
     height: 350px;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 1;
     animation: float-retro 6s ease-in-out infinite;
     filter: drop-shadow(0 0 30px rgba(255, 92, 255, 0.7));
 }
@@ -642,24 +642,27 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
 /* Responsive para mobile */
 @media (max-width: 768px) {
     .retro-floating-item {
-        width: 250px;
-        height: 250px;
+        width: 175px;
+        height: 175px;
+        opacity: 0.6;
     }
     
     .retro-item-1 { 
         top: 100vh; 
-        left: -40px; 
-        width: 320px;
-        height: 320px;
+        left: -25px; 
+        width: 225px;
+        height: 225px;
     }
-    .retro-item-2 { top: 200vh; right: -25px; }
-    .retro-item-3 { top: 300vh; left: -35px; }
-    .retro-item-4 { top: 400vh; right: -30px; }
+    .retro-item-2 { top: 200vh; right: -20px; }
+    .retro-item-3 { top: 300vh; left: -25px; }
+    .retro-item-4 { top: 400vh; right: -20px; }
     .retro-item-5 { top: 500vh; left: -25px; }
-    .retro-item-6 { top: 450vh; right: -35px; }
-    .retro-item-7 { top: 700vh; left: -30px; }
-    .retro-item-8 { top: 650vh; right: -25px; }
+    .retro-item-6 { top: 540vh; right: -20px; }
+    .retro-item-7 { top: 700vh; left: -25px; }
+    .retro-item-8 { top: 650vh; right: -20px; }
 }
+
+
 
 /* Efecto de selección de texto */
 ::selection {
