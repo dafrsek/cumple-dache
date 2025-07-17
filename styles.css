@@ -579,7 +579,86 @@ section {
 
 /* Cursor personalizado */
 body {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="6" fill="%2300FFFF" stroke="%23FF5CFF" stroke-width="3"/><circle cx="16" cy="16" r="6" fill="%23FF5CFF"/></svg>'), auto;
+    cursor: url('pointer-rotated.png') 16 16, auto;
+}
+
+/* Fallbacks para diferentes elementos */
+a, button, input[type="submit"], input[type="button"], .clickable {
+    cursor: url('pointer-rotated.png') 16 16, pointer;
+}
+
+input[type="text"], input[type="email"], textarea, input[type="password"] {
+    cursor: url('pointer-rotated.png') 16 16, text;
+}
+
+/* Elementos retro flotantes */
+.retro-floating-item {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: float-retro 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(255, 92, 255, 0.7));
+}
+
+.retro-floating-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Cassette más grande */
+.retro-item-1 {
+    width: 450px;
+    height: 450px;
+}
+
+@keyframes float-retro {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(-4deg);
+    }
+    75% {
+        transform: translateY(-30px) rotate(4deg);
+    }
+}
+
+/* Posiciones específicas para cada elemento - distribuidos por toda la página */
+.retro-item-1 { top: 110vh; left: -120px; animation-delay: 0s; } /* Final sección 1 - Cassette más grande */
+.retro-item-2 { top: 220vh; right: -65px; animation-delay: 1s; } /* Inicio sección 2 */
+.retro-item-3 { top: 320vh; left: -55px; animation-delay: 2s; } /* Final sección 2 */
+.retro-item-4 { top: 400vh; right: -50px; animation-delay: 3s; } /* Inicio sección 3 */
+.retro-item-5 { top: 500vh; left: -45px; animation-delay: 4s; } /* Final sección 3 */
+.retro-item-6 { top: 540vh; right: -55px; animation-delay: 5s; } /* Inicio sección 4 - Riñonera más arriba */
+.retro-item-7 { top: 700vh; left: -50px; animation-delay: 6s; } /* Final sección 4 */
+.retro-item-8 { top: 650vh; right: -45px; animation-delay: 7s; } /* Ajustado para no extender la página */
+
+/* Responsive para mobile */
+@media (max-width: 768px) {
+    .retro-floating-item {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .retro-item-1 { 
+        top: 100vh; 
+        left: -40px; 
+        width: 320px;
+        height: 320px;
+    }
+    .retro-item-2 { top: 200vh; right: -25px; }
+    .retro-item-3 { top: 300vh; left: -35px; }
+    .retro-item-4 { top: 400vh; right: -30px; }
+    .retro-item-5 { top: 500vh; left: -25px; }
+    .retro-item-6 { top: 450vh; right: -35px; }
+    .retro-item-7 { top: 700vh; left: -30px; }
+    .retro-item-8 { top: 650vh; right: -25px; }
 }
 
 /* Efecto de selección de texto */
