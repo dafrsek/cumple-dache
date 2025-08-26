@@ -254,14 +254,14 @@ document.querySelectorAll('button, input[type="radio"], .gallery-item, .moodboar
 function shareEvent() {
     if (navigator.share) {
         navigator.share({
-            title: '¡Te invito a mi farra! - Cumple Dache',
+            title: '¡Hagamos un viaje en el tiempo!',
             text: 'Mis felices 30 - Sábado 11 de octubre de 2025',
             url: window.location.href
         });
     } else {
         // Fallback para navegadores que no soportan Web Share API
         const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('¡Te invito a mi farra! Mis felices 30 - Sábado 11 de octubre de 2025');
+        const text = encodeURIComponent('¡Hagamos un viaje en el tiempo! Mis felices 30 - Sábado 11 de octubre de 2025');
         window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
     }
 }
