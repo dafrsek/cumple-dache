@@ -602,12 +602,12 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
 /* Elementos retro flotantes */
 .retro-floating-item {
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     pointer-events: none;
     z-index: 1;
     animation: float-retro 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(255, 92, 255, 0.7));
+    filter: drop-shadow(0 0 26px rgba(255, 92, 255, 0.6));
 }
 
 .retro-floating-item img {
@@ -638,36 +638,36 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
 }
 
 /* Posiciones específicas para cada elemento - distribuidos por toda la página */
-.retro-item-1 { top: 110vh; left: -120px; animation-delay: 0s; } /* Final sección 1 - Cassette más grande */
-.retro-item-2 { top: 220vh; right: -65px; animation-delay: 1s; } /* Inicio sección 2 */
-.retro-item-3 { top: 320vh; left: -55px; animation-delay: 2s; } /* Final sección 2 */
-.retro-item-4 { top: 400vh; right: -50px; animation-delay: 3s; } /* Inicio sección 3 */
-.retro-item-5 { top: 500vh; left: -45px; animation-delay: 4s; } /* Final sección 3 */
-.retro-item-6 { top: 540vh; right: -55px; animation-delay: 5s; } /* Inicio sección 4 - Riñonera más arriba */
-.retro-item-7 { top: 700vh; left: -50px; animation-delay: 6s; } /* Final sección 4 */
-.retro-item-8 { top: 650vh; right: -45px; animation-delay: 7s; } /* Ajustado para no extender la página */
+.retro-item-1 { top: 300vh; left: -100px; animation-delay: 0s; }
+.retro-item-2 { top: 380vh; right: -55px; animation-delay: 1s; }
+.retro-item-3 { top: 460vh; left: -45px; animation-delay: 2s; }
+.retro-item-4 { top: 540vh; right: -40px; animation-delay: 3s; }
+.retro-item-5 { top: 620vh; left: -40px; animation-delay: 4s; }
+.retro-item-6 { top: 700vh; right: -45px; animation-delay: 5s; }
+.retro-item-7 { top: 780vh; left: -45px; animation-delay: 6s; }
+.retro-item-8 { top: 860vh; right: -40px; animation-delay: 7s; }
 
 /* Responsive para mobile */
 @media (max-width: 768px) {
     .retro-floating-item {
-        width: 175px;
-        height: 175px;
+        width: 150px;
+        height: 150px;
         opacity: 0.6;
     }
     
     .retro-item-1 { 
-        top: 100vh; 
-        left: -25px; 
-        width: 225px;
-        height: 225px;
+        top: 280vh; 
+        left: -20px; 
+        width: 200px;
+        height: 200px;
     }
-    .retro-item-2 { top: 200vh; right: -20px; }
-    .retro-item-3 { top: 300vh; left: -25px; }
-    .retro-item-4 { top: 400vh; right: -20px; }
-    .retro-item-5 { top: 500vh; left: -25px; }
-    .retro-item-6 { top: 540vh; right: -20px; }
-    .retro-item-7 { top: 700vh; left: -25px; }
-    .retro-item-8 { top: 650vh; right: -20px; }
+    .retro-item-2 { top: 350vh; right: -16px; }
+    .retro-item-3 { top: 420vh; left: -18px; }
+    .retro-item-4 { top: 490vh; right: -16px; }
+    .retro-item-5 { top: 560vh; left: -18px; }
+    .retro-item-6 { top: 630vh; right: -16px; }
+    .retro-item-7 { top: 700vh; left: -18px; }
+    .retro-item-8 { top: 770vh; right: -16px; }
 }
 
 
@@ -1092,3 +1092,12 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
         filter: drop-shadow(0 0 12px rgba(255, 92, 255, 0.7));
     }
 } 
+
+/* Suave vaivén vertical para elementos destacados */
+@keyframes bob-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-bob-slow {
+  animation: bob-slow 3.5s ease-in-out infinite;
+}
