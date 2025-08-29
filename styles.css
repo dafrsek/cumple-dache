@@ -31,10 +31,10 @@
   text-transform: uppercase;
 }
 
-/* Variables de paleta monocromática (blanco/plateado/negro) */
+/* Variables de paleta con rosa neón real para títulos */
 :root {
-    --neon-pink: #C0C0C0; /* ahora plateado */
-    --neon-green: #BFBFBF; /* neutralizado para no sobresalir */
+    --neon-pink: #FF5CFF; /* rosa neón legible */
+    --neon-green: #BFBFBF; /* neutralizado */
     --neon-cyan: #E6E6E6; /* blanco tenue */
     --neon-purple: #8A8A8A; /* gris medio */
     --neon-orange: #D0D0D0; /* gris claro */
@@ -638,14 +638,14 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
 }
 
 /* Posiciones específicas para cada elemento - distribuidos por toda la página */
-.retro-item-1 { top: 300vh; left: -100px; animation-delay: 0s; }
-.retro-item-2 { top: 380vh; right: -55px; animation-delay: 1s; }
-.retro-item-3 { top: 460vh; left: -45px; animation-delay: 2s; }
-.retro-item-4 { top: 540vh; right: -40px; animation-delay: 3s; }
-.retro-item-5 { top: 620vh; left: -40px; animation-delay: 4s; }
-.retro-item-6 { top: 700vh; right: -45px; animation-delay: 5s; }
-.retro-item-7 { top: 780vh; left: -45px; animation-delay: 6s; }
-.retro-item-8 { top: 860vh; right: -40px; animation-delay: 7s; }
+.retro-item-1 { top: 180vh; left: -100px; animation-delay: 0s; } /* Entre hero y hero-banner */
+.retro-item-2 { top: 280vh; right: -55px; animation-delay: 1s; } /* En hero-banner */
+.retro-item-3 { top: 420vh; left: -45px; animation-delay: 2s; } /* En event-details */
+.retro-item-4 { top: 520vh; right: -40px; animation-delay: 3s; } /* En countdown */
+.retro-item-5 { top: 580vh; left: -40px; animation-delay: 4s; } /* En countdown */
+.retro-item-6 { top: 650vh; right: -45px; animation-delay: 5s; } /* En personal-message */
+.retro-item-7 { top: 720vh; left: -45px; animation-delay: 6s; } /* En personal-message */
+.retro-item-8 { top: 800vh; right: -40px; animation-delay: 7s; } /* En rsvp */
 
 /* Responsive para mobile */
 @media (max-width: 768px) {
@@ -655,19 +655,19 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
         opacity: 0.6;
     }
     
-    .retro-item-1 { 
-        top: 280vh; 
-        left: -20px; 
+    .retro-item-1 {
+        top: 160vh;
+        left: -20px;
         width: 200px;
         height: 200px;
     }
-    .retro-item-2 { top: 350vh; right: -16px; }
-    .retro-item-3 { top: 420vh; left: -18px; }
-    .retro-item-4 { top: 490vh; right: -16px; }
-    .retro-item-5 { top: 560vh; left: -18px; }
-    .retro-item-6 { top: 630vh; right: -16px; }
-    .retro-item-7 { top: 700vh; left: -18px; }
-    .retro-item-8 { top: 770vh; right: -16px; }
+    .retro-item-2 { top: 260vh; right: -16px; }
+    .retro-item-3 { top: 380vh; left: -18px; }
+    .retro-item-4 { top: 480vh; right: -16px; }
+    .retro-item-5 { top: 540vh; left: -18px; }
+    .retro-item-6 { top: 600vh; right: -16px; }
+    .retro-item-7 { top: 660vh; left: -18px; }
+    .retro-item-8 { top: 740vh; right: -16px; }
 }
 
 
@@ -810,6 +810,19 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
         0 0 6px rgba(255,255,255,0.28),
         0 0 16px rgba(255,255,255,0.18);
     animation: neon-flicker-subtle 2.2s infinite alternate;
+}
+
+/* Rosa neón legible para títulos de secciones (h2, h3) */
+section h2,
+section h3,
+.section-title {
+    color: var(--neon-pink);
+    text-shadow:
+        0 0 4px rgba(255, 92, 255, 0.55),
+        0 0 10px rgba(255, 92, 255, 0.35),
+        0 2px 14px rgba(0, 0, 0, 0.5);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Tarjetas ochenteras */
@@ -1100,4 +1113,55 @@ input[type="text"], input[type="email"], textarea, input[type="password"] {
 }
 .animate-bob-slow {
   animation: bob-slow 3.5s ease-in-out infinite;
+}
+
+/* Host para posicionar polaroids */
+.polaroid-host {
+  position: relative;
+  overflow: visible;
+  z-index: 2; /* eleva toda la tarjeta para que la polaroid no quede debajo de otras */
+}
+
+/* Contenedor de polaroid: marco blanco, sombra y pequeño borde inferior extra */
+.polaroid {
+  position: absolute;
+  width: 140px;
+  background: #fff;
+  padding: 8px 8px 20px 8px; /* espacio extra abajo típico de polaroid */
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.25);
+  z-index: 5;
+}
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Pin redondo arriba simulando tachuela */
+.polaroid-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #C0C0C0, #A0A0A0);
+  border: 2px solid #808080;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  z-index: 6;
+}
+
+/* Posiciones por card */
+.polaroid-bottom-left { bottom: -35px; left: -18px; }
+.polaroid-bottom-right { bottom: -35px; right: -18px; }
+.polaroid-top-left { top: -18px; left: -18px; }
+.polaroid-top-right { top: -18px; right: -18px; }
+
+@media (max-width: 768px) {
+  .polaroid { width: 110px; }
+  .polaroid img { height: 110px; }
 }

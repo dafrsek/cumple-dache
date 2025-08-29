@@ -21,31 +21,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="bg-black text-white overflow-x-hidden relative">
-    <!-- Elementos retro flotantes globales -->
-    <div class="retro-floating-item retro-item-1">
-      <img src="cassette.png" alt="Cassette" />
-    </div>
-    <div class="retro-floating-item retro-item-2">
-      <img src="disco.png" alt="Disco" />
-    </div>
-    <div class="retro-floating-item retro-item-3">
-      <img src="joystick.png" alt="Joystick" />
-    </div>
-    <div class="retro-floating-item retro-item-4">
-      <img src="lámpara.png" alt="Lámpara" />
-    </div>
-    <div class="retro-floating-item retro-item-5">
-      <img src="lentes.png" alt="Lentes" />
-    </div>
-    <div class="retro-floating-item retro-item-6">
-      <img src="riñonera.png" alt="Riñonera" />
-    </div>
-    <div class="retro-floating-item retro-item-7">
-      <img src="roller.png" alt="Roller" />
-    </div>
-    <div class="retro-floating-item retro-item-8">
-      <img src="walkman.png" alt="Walkman" />
-    </div>
+
     
     <!-- Sección 1 - Hero (restaurado al original) -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -222,7 +198,7 @@
         <div class="relative z-30 text-center px-4">
             <img src="TextoHero.png" alt="¡Te invito a mi farra!" class="mx-auto w-full max-w-3xl md:max-w-4xl drop-shadow-2xl animate-fade-in-up" style="object-fit: contain;" />
             <div class="scroll-indicator mt-8">
-                <p class="text-lg text-gray-400 mb-2 font-retrostereo">Desliza para más info</p>
+                <p class="text-lg text-gray-300 mb-2 font-retrostereo font-bold section-title">Desliza para más info</p>
                 <div class="scroll-arrow">↓</div>
             </div>
         </div>
@@ -230,7 +206,7 @@
     
     <!-- Sección nueva - Imagen Banner a ancho completo con niebla inferior -->
     <section id="hero-banner" class="min-h-screen relative overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('Banner.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+        <div class="absolute inset-0" style="background-image:url('img7.JPG'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
         <!-- Contenido: misFelices casi al final de la sección -->
         <div class="relative z-10 min-h-screen flex items-end justify-center pb-16 px-4">
             <!-- Difuminado tenue detrás del texto -->
@@ -259,18 +235,23 @@
               <div class="font-retrostereo text-xl mb-3 text-gray-300 font-bold">Fecha y Hora</div>
               <div class="font-orbitron text-lg text-white">Sábado 11 de octubre de 2025<br><span class="text-gray-200 font-bold">8:00 PM</span><br><br>Resérvate para un día de playa el lunes 13 también ;)</div>
             </div>
-            <div class="retro-card transition-all duration-300 p-6">
+            <div class="retro-card transition-all duration-300 p-6 polaroid-host">
               <div class="text-4xl mb-4">📍</div>
               <div class="font-retrostereo text-xl mb-3 text-gray-300 font-bold">Lugar</div>
-              <div class="font-orbitron text-lg text-white">Calle 16a # 31 -36<br><span class="text-gray-300">Maicao, La Guajira</span></div>
+              <div class="font-orbitron text-lg text-white">Calle 16a # 31 - 36<br><span class="text-gray-300">Maicao, La Guajira</span></div>
+              <!-- Polaroid decorativa -->
+              <div class="polaroid polaroid-top-right rotate-[-6deg]" style="top: 60px; right: -50px; z-index: 99999;">
+                <div class="polaroid-pin"></div>
+                <img src="img1.JPG" alt="Recuerdo" />
+              </div>
             </div>
           </div>
           <!-- Mapa embebido -->
           <div class="w-full max-w-4xl mx-auto mb-8">
-            <div class="retro-card p-6">
+            <div class="retro-card p-6 relative polaroid-host">
               <h3 class="font-retrostereo text-2xl mb-4 text-gray-300 font-bold text-center">📍 Ubicación</h3>
               <div class="w-full h-64 rounded-lg overflow-hidden border-2 border-gray-400 shadow-[0_0_10px_#ffffff22] relative z-10">
-                <iframe 
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.3887151734993!2d-72.26086192513371!3d11.379287988808544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8bf235a15f57df%3A0xcc9fbbaa34e2749d!2sCl.%2016%20A%20%23%2033A-31%2C%20Maicao%2C%20La%20Guajira%2C%20Colombia!5e0!3m2!1ses!2sar!4v1756203929052!5m2!1ses!2sar"
                   width="100%"
                   height="100%"
@@ -278,6 +259,11 @@
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <!-- Imagen decorativa en esquina inferior izquierda -->
+              <div class="polaroid polaroid-bottom-left rotate-[6deg]" style="bottom: -60px; left: -20px; z-index: 99999;">
+                <div class="polaroid-pin"></div>
+                <img src="img2.JPG" alt="Recuerdo" />
               </div>
             </div>
           </div>
@@ -293,7 +279,7 @@
           
           <!-- Tablero Pinterest Completo -->
           <div class="w-full max-w-6xl mx-auto mb-8">
-            <div class="retro-card p-6">
+            <div class="retro-card p-6 relative polaroid-host">
               <h3 class="font-retrostereo text-2xl mb-6 text-gray-200 font-bold text-center">💃 Inspiración de Estilo</h3>
               <div class="w-full h-[500px] relative z-10 overflow-hidden" style="pointer-events: auto;">
                 <a data-pin-do="embedBoard"
@@ -306,6 +292,11 @@
                    style="display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto;">
                 </a>
                 <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+              </div>
+              <!-- Imagen decorativa en esquina inferior derecha -->
+              <div class="polaroid polaroid-bottom-right rotate-[6deg]" style="bottom: -60px; right: -20px; z-index: 99999;">
+                <div class="polaroid-pin"></div>
+                <img src="img3.JPG" alt="Recuerdo" />
               </div>
             </div>
           </div>
@@ -322,6 +313,7 @@
           <circle cx="1200" cy="300" r="2.2" fill="#C0C0C0" fill-opacity="0.22" />
         </svg>
       </div>
+
       <div class="container mx-auto px-4 relative z-10 text-center">
         <h2 class="font-retrostereo retro-title-glow-subtle mb-12 text-4xl sm:text-5xl md:text-6xl -mt-8">¡Falta poco!</h2>
         
@@ -337,9 +329,14 @@
             <div class="countdown-label-new font-orbitron text-sm sm:text-base md:text-lg text-gray-300">Horas</div>
           </div>
           
-          <div class="countdown-card bg-black/40 border border-gray-500 rounded-xl p-4 md:p-6 backdrop-blur-sm transition-all duration-300">
+          <div class="countdown-card bg-black/40 border border-gray-500 rounded-xl p-4 md:p-6 backdrop-blur-sm transition-all duration-300 relative polaroid-host">
             <div class="countdown-number-new text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-retrostereo text-gray-200 mb-2" id="minutes">00</div>
             <div class="countdown-label-new font-orbitron text-sm sm:text-base md:text-lg text-gray-300">Minutos</div>
+            <!-- Imagen decorativa en esquina inferior izquierda -->
+            <div class="polaroid polaroid-bottom-left rotate-[6deg]" style="bottom: -150px; left: -40px; z-index: 99999;">
+              <div class="polaroid-pin"></div>
+              <img src="img4.JPG" alt="Recuerdo" />
+            </div>
           </div>
           
           <div class="countdown-card bg-black/40 border border-gray-500 rounded-xl p-4 md:p-6 backdrop-blur-sm transition-all duration-300">
@@ -358,77 +355,22 @@
           <circle cx="1500" cy="300" r="2.2" fill="#C0C0C0" fill-opacity="0.22" />
         </svg>
       </div>
+
       <div class="container mx-auto px-4 relative z-10 text-center">
-        <div class="max-w-3xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 md:p-12 backdrop-blur-sm animate-fade-in-up">
+        <div class="max-w-3xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 md:p-12 backdrop-blur-sm animate-fade-in-up relative polaroid-host">
           <div class="gift-icon-new text-6xl md:text-8xl mb-8">🎁</div>
-          <h2 class="font-retrostereo text-3xl md:text-4xl lg:text-5xl text-gray-200 mb-6">Lo mío son los regalos del alma</h2>
-          
+          <h2 class="font-retrostereo text-3xl md:text-4xl lg:text-5xl text-gray-200 mb-6 font-bold text-center">Lo mío son los regalos del alma</h2>
+
+          <!-- Imagen decorativa en esquina inferior izquierda -->
+          <div class="polaroid polaroid-bottom-left rotate-[-6deg]" style="bottom: -90px; left: 20px; z-index: 99999;">
+            <div class="polaroid-pin"></div>
+            <img src="img5.JPG" alt="Recuerdo" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Galería de fotos -->
-    <section id="gallery" class="min-h-screen py-20 relative overflow-hidden retro-section-bg">
-      <div class="absolute inset-0 section-brillitos">
-        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="600" cy="200" r="2.5" fill="#FFFFFF" fill-opacity="0.28" />
-          <circle cx="1700" cy="300" r="2.2" fill="#C0C0C0" fill-opacity="0.22" />
-        </svg>
-      </div>
-      <div class="container mx-auto px-4 relative z-10">
-        <h2 class="font-retrostereo text-4xl sm:text-5xl md:text-6xl text-gray-200 mb-12 text-center">Galería de Fotos</h2>
-        <div class="gallery-grid grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Placeholder para foto 1 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 1</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-          <!-- Placeholder para foto 2 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 2</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-          <!-- Placeholder para foto 3 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 3</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-          <!-- Placeholder para foto 4 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 4</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-          <!-- Placeholder para foto 5 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 5</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-          <!-- Placeholder para foto 6 -->
-          <div class="gallery-item bg-black/40 border border-gray-500 rounded-xl p-6 backdrop-blur-sm hover:glow-pink transition-all duration-300 flex items-center justify-center h-64">
-            <div class="text-center">
-              <div class="text-4xl mb-4">📸</div>
-              <div class="text-gray-200 font-orbitron text-lg">Foto 6</div>
-              <div class="text-gray-400 font-orbitron text-sm mt-2">La cucha</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- Formulario RSVP -->
     <section id="rsvp" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden retro-section-bg">
@@ -438,9 +380,10 @@
           <circle cx="1200" cy="300" r="2.2" fill="#C0C0C0" fill-opacity="0.22" />
         </svg>
       </div>
+
       <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-2xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 md:p-12 backdrop-blur-sm animate-fade-in-up">
-          <h2 class="font-retrostereo text-3xl md:text-4xl text-gray-200 mb-10 text-center">¿Vienes?</h2>
+        <div class="max-w-2xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 md:p-12 backdrop-blur-sm animate-fade-in-up relative polaroid-host">
+          <h2 class="font-retrostereo text-3xl md:text-4xl text-gray-200 mb-10 text-center font-bold">¿Vienes?</h2>
           <form id="rsvp-form" class="space-y-8">
             <div>
               <label for="name" class="block text-xl font-bold mb-3 text-gray-300 font-retrostereo">Nombre</label>
@@ -486,6 +429,18 @@
           <div id="success-message" class="hidden mt-8 p-6 bg-green-900/50 border-2 border-green-500 rounded-lg text-center">
             <p class="text-2xl font-bold text-green-400">¡Gracias por confirmar!</p>
             <p class="text-lg text-gray-300 mt-2">Nos vemos en la farra 🎉</p>
+          </div>
+
+          <!-- Imagen decorativa en esquina superior derecha -->
+          <div class="polaroid polaroid-top-right rotate-[6deg]" style="top: -10px; right: -40px; z-index: 99999;">
+            <div class="polaroid-pin"></div>
+            <img src="img6.JPG" alt="Recuerdo" />
+          </div>
+
+          <!-- Imagen decorativa en esquina inferior izquierda -->
+          <div class="polaroid polaroid-bottom-left rotate-[-6deg]" style="bottom: -60px; left: -40px; z-index: 99999;">
+            <div class="polaroid-pin"></div>
+            <img src="Banner.jpg" alt="Recuerdo" />
           </div>
         </div>
       </div>
