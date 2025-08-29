@@ -168,7 +168,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Efecto de aparición al hacer scroll
+// Efecto de aparición al hacer scroll - DESACTIVADO
+/*
 const observerOptions = {
     threshold: 0.05,
     rootMargin: '0px 0px -10px 0px'
@@ -190,6 +191,7 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(section);
 });
+*/
 
 // Efecto de partículas de fondo
 function createParticles() {

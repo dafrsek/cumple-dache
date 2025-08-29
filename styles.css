@@ -615,9 +615,9 @@ body::-webkit-scrollbar {
     }
 }
 
-section {
+/* section {
     animation: fade-in-up 0.5s ease-out;
-}
+} */
 
 /* Efecto de partículas de fondo */
 @keyframes particle-float {
@@ -1218,10 +1218,6 @@ section h3,
   .polaroid img { height: 110px; }
 }
 
-@media (max-width: 768px) {
-  /* Ajustes finos de overflow en mobile */
-  .polaroid--img1 { right: 10px !important; }
-}
 
 /* Tamaños y separación más sutiles para flotantes locales */
 section#countdown .retro-floating-item,
