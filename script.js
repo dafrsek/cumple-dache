@@ -170,8 +170,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Efecto de aparición al hacer scroll
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -10px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -186,8 +186,8 @@ const observer = new IntersectionObserver((entries) => {
 // Observar todas las secciones
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    section.style.transform = 'translateY(12px)';
+    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(section);
 });
 

@@ -262,7 +262,7 @@
               <div class="font-retrostereo text-xl mb-3 text-gray-300 font-bold">Lugar</div>
               <div class="font-orbitron text-lg text-white">Calle 16a # 31 - 36<br><span class="text-gray-300">Maicao, La Guajira</span></div>
               <!-- Polaroid decorativa -->
-              <div class="polaroid polaroid-top-right rotate-[-6deg]" style="top: 60px; right: -50px; z-index: 99999;">
+              <div class="polaroid polaroid-top-right rotate-[-6deg] polaroid--img1" style="top: 60px; right: -50px; z-index: 99999;">
                 <div class="polaroid-pin"></div>
                 <img src="img1.JPG" alt="Recuerdo" />
               </div>
@@ -316,7 +316,7 @@
                 <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
               </div>
               <!-- Imagen decorativa en esquina inferior derecha -->
-              <div class="polaroid polaroid-bottom-right rotate-[6deg]" style="bottom: -60px; right: -20px; z-index: 99999;">
+              <div class="polaroid polaroid-bottom-right rotate-[6deg] polaroid--img3" style="bottom: -60px; right: -20px; z-index: 99999;">
                 <div class="polaroid-pin"></div>
                 <img src="img3.JPG" alt="Recuerdo" />
               </div>
@@ -334,6 +334,20 @@
           <circle cx="500" cy="200" r="2.5" fill="#FFFFFF" fill-opacity="0.28" />
           <circle cx="1200" cy="300" r="2.2" fill="#C0C0C0" fill-opacity="0.22" />
         </svg>
+      </div>
+
+      <!-- Elementos flotantes para COUNTDOWN -->
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 8%; left: 8px; width: 140px; height: 140px; z-index:2;">
+        <img src="cassette.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 60%; left: 12px; width: 130px; height: 130px; z-index:2;">
+        <img src="joystick.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 14%; right: 8px; width: 135px; height: 135px; z-index:2;">
+        <img src="disco.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 72%; right: 12px; width: 130px; height: 130px; z-index:2;">
+        <img src="roller.png" alt="" />
       </div>
 
       <div class="container mx-auto px-4 relative z-10 text-center">
@@ -355,7 +369,7 @@
             <div class="countdown-number-new text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-retrostereo text-gray-200 mb-2" id="minutes">00</div>
             <div class="countdown-label-new font-orbitron text-sm sm:text-base md:text-lg text-gray-300">Minutos</div>
             <!-- Imagen decorativa en esquina inferior izquierda -->
-            <div class="polaroid polaroid-bottom-left rotate-[6deg]" style="bottom: -150px; left: -40px; z-index: 99999;">
+            <div class="polaroid polaroid-bottom-left rotate-[6deg] polaroid--img4" style="bottom: -140px; left: 0px; z-index: 99999;">
               <div class="polaroid-pin"></div>
               <img src="img4.JPG" alt="Recuerdo" />
             </div>
@@ -378,13 +392,27 @@
         </svg>
       </div>
 
+      <!-- Elementos flotantes para REGALO -->
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 6%; left: 8px; width: 135px; height: 135px; z-index:2;">
+        <img src="lentes.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 54%; left: 12px; width: 130px; height: 130px; z-index:2;">
+        <img src="lámpara.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 12%; right: 8px; width: 135px; height: 135px; z-index:2;">
+        <img src="riñonera.png" alt="" />
+      </div>
+      <div class="retro-floating-item" aria-hidden="true" style="position:absolute; top: 70%; right: 12px; width: 130px; height: 130px; z-index:2;">
+        <img src="walkman.png" alt="" />
+      </div>
+
       <div class="container mx-auto px-4 relative z-10 text-center">
         <div class="max-w-3xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 md:p-12 backdrop-blur-sm animate-fade-in-up relative polaroid-host">
           <div class="gift-icon-new text-6xl md:text-8xl mb-8">🎁</div>
           <h2 class="font-retrostereo text-3xl md:text-4xl lg:text-5xl text-gray-200 mb-6 font-bold text-center">Lo mío son los regalos del alma</h2>
 
           <!-- Imagen decorativa en esquina inferior izquierda -->
-          <div class="polaroid polaroid-bottom-left rotate-[-6deg]" style="bottom: -90px; left: 20px; z-index: 99999;">
+          <div class="polaroid polaroid-bottom-left rotate-[-6deg] polaroid--img5" style="bottom: -90px; left: 20px; z-index: 99999;">
             <div class="polaroid-pin"></div>
             <img src="img5.JPG" alt="Recuerdo" />
           </div>
@@ -454,13 +482,13 @@
           </div>
 
           <!-- Imagen decorativa en esquina superior derecha -->
-          <div class="polaroid polaroid-top-right rotate-[6deg]" style="top: -10px; right: -40px; z-index: 99999;">
+          <div class="polaroid polaroid-top-right rotate-[6deg] polaroid--img6" style="top: -10px; right: 0px; z-index: 99999;">
             <div class="polaroid-pin"></div>
             <img src="img6.JPG" alt="Recuerdo" />
           </div>
 
           <!-- Imagen decorativa en esquina inferior izquierda -->
-          <div class="polaroid polaroid-bottom-left rotate-[-6deg]" style="bottom: -60px; left: -40px; z-index: 99999;">
+          <div class="polaroid polaroid-bottom-left rotate-[-6deg] polaroid--img7" style="bottom: -90px; left: 10px; z-index: 99999;">
             <div class="polaroid-pin"></div>
             <img src="Banner.jpg" alt="Recuerdo" />
           </div>

@@ -606,8 +606,8 @@ body::-webkit-scrollbar {
 /* Efectos de entrada */
 @keyframes fade-in-up {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0.2;
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -616,7 +616,7 @@ body::-webkit-scrollbar {
 }
 
 section {
-    animation: fade-in-up 0.8s ease-out;
+    animation: fade-in-up 0.5s ease-out;
 }
 
 /* Efecto de partículas de fondo */
@@ -1216,4 +1216,15 @@ section h3,
 @media (max-width: 768px) {
   .polaroid { width: 110px; }
   .polaroid img { height: 110px; }
+}
+
+@media (max-width: 768px) {
+  /* Ajustes finos de overflow en mobile */
+  .polaroid--img1 { right: 10px !important; }
+}
+
+/* Tamaños y separación más sutiles para flotantes locales */
+section#countdown .retro-floating-item,
+section#personal-message .retro-floating-item {
+  opacity: 0.65;
 }
