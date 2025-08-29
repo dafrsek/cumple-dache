@@ -538,6 +538,58 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Botones del gate de música (estilo sobrio) */
+.walkman-btn {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.28);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.walkman-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+
+/* Variante sutil rosa y opaca para el botón Sí */
+.walkman-btn--yes {
+    background: rgba(255, 92, 255, 0.14);
+    border-color: rgba(255, 92, 255, 0.35);
+}
+.walkman-btn--yes:hover {
+    background: rgba(255, 92, 255, 0.2);
+}
+
+/* Control global audio bottom-right (sobrio) */
+#global-audio-toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    color: #EEE;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+#global-audio-toggle:hover {
+    transform: translateY(-1px);
+    background: rgba(0,0,0,0.7);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+.global-audio-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Título del gate más legible */
+#music-gate h1 {
+    letter-spacing: 0.12em;
+    line-height: 1.25;
+}
+
 /* Evitar scroll horizontal y ocultar barras de scroll */
 html, body {
     overflow-x: hidden;

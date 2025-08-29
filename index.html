@@ -22,6 +22,28 @@
 </head>
 <body class="bg-black text-white overflow-x-hidden relative">
 
+    <!-- Pantalla de bienvenida: ¿Entrar con música? -->
+    <div id="music-gate" class="fixed inset-0 z-[100000] hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('hq720.jpg');"></div>
+        <!-- Niebla negra radial sutil -->
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.95) 100%);"></div>
+        <div class="relative z-10 w-full h-full flex items-center justify-center px-6 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h1 class="font-retrostereo text-3xl sm:text-4xl md:text-5xl mb-6 section-title">¿Entrar con música?</h1>
+                <p class="font-orbitron text-base sm:text-lg text-gray-200 mb-10">Puedes activarla ahora o más tarde con el control en la esquina.</p>
+                <div class="flex flex-col sm:flex-row-reverse gap-4 justify-center">
+                    <button id="btn-music-yes" class="walkman-btn walkman-btn--yes px-6 py-4 rounded-lg font-retrostereo text-lg inline-flex items-center justify-center gap-3">
+                        <img src="walkman.png" alt="Play" class="w-6 h-6" />
+                        Sí, con música
+                    </button>
+                    <button id="btn-music-no" class="walkman-btn px-6 py-4 rounded-lg font-retrostereo text-lg inline-flex items-center justify-center">
+                        Entrar sin música
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     <!-- Sección 1 - Hero (restaurado al original) -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -447,6 +469,14 @@
     </section>
 
     <!-- Scripts -->
+    <!-- Audio de fondo persistente -->
+    <audio id="bg-music" src="Whitney Houston - I Wanna Dance With Somebody.mp3" preload="auto" loop></audio>
+
+    <!-- Control global play/pause en esquina inferior derecha -->
+    <button id="global-audio-toggle" aria-label="Alternar música" class="fixed bottom-4 right-4 z-[99999] hidden">
+        <span class="global-audio-icon">▶</span>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html> 

@@ -43,6 +43,7 @@ updateCountdown(); // Ejecutar inmediatamente
 
 // Manejo del formulario RSVP
 document.addEventListener('DOMContentLoaded', function() {
+    initMusicGate();
     const form = document.getElementById('rsvp-form');
     const successMessage = document.getElementById('success-message');
 
@@ -350,3 +351,78 @@ if (isMobile()) {
 }
 
 console.log('🎉 ¡Cumple Dache está listo para la farra! 🎉'); 
+
+// ============================
+// Música: Gate + Control global
+// ============================
+function initMusicGate() {
+    const musicGate = document.getElementById('music-gate');
+    const audio = document.getElementById('bg-music');
+    const toggle = document.getElementById('global-audio-toggle');
+    const icon = toggle ? toggle.querySelector('.global-audio-icon') : null;
+    const btnYes = document.getElementById('btn-music-yes');
+    const btnNo = document.getElementById('btn-music-no');
+
+    if (!musicGate || !audio || !toggle) return;
+
+    // Mostrar gate SIEMPRE en cada carga
+    musicGate.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Mostrar el toggle desde el inicio (permite controlar música incluso sin pasar por gate)
+    toggle.classList.remove('hidden');
+    updateIcon(audio && !audio.paused, icon);
+
+    btnYes && btnYes.addEventListener('click', () => {
+        sessionStorage.setItem('musicShouldPlay', 'true');
+        musicGate.classList.add('hidden');
+        document.body.style.overflow = '';
+        toggle.classList.remove('hidden');
+        safePlay(audio, icon, toggle);
+    });
+
+    btnNo && btnNo.addEventListener('click', () => {
+        sessionStorage.setItem('musicShouldPlay', 'false');
+        musicGate.classList.add('hidden');
+        document.body.style.overflow = '';
+        toggle.classList.remove('hidden');
+        updateIcon(false, icon);
+    });
+
+    toggle.addEventListener('click', () => {
+        if (audio.paused) {
+            sessionStorage.setItem('musicShouldPlay', 'true');
+            safePlay(audio, icon, toggle);
+        } else {
+            audio.pause();
+            sessionStorage.setItem('musicShouldPlay', 'false');
+            updateIcon(false, icon);
+        }
+    });
+}
+
+function updateIcon(isPlaying, icon) {
+    if (!icon) return;
+    icon.textContent = isPlaying ? '⏸' : '▶';
+}
+
+function safePlay(audio, icon, toggle) {
+    if (!audio) return;
+    const tryPlay = () => audio.play().then(() => {
+        updateIcon(true, icon);
+    }).catch(() => {
+        // Si el navegador bloquea autoplay, mantener el toggle visible para que el usuario intente manualmente
+        toggle && toggle.classList.remove('hidden');
+        updateIcon(false, icon);
+    });
+    // En iOS a veces requiere interacción; intentamos al cargar/visible
+    if (document.visibilityState === 'visible') {
+        tryPlay();
+    } else {
+        document.addEventListener('visibilitychange', function onVis() {
+            if (document.visibilityState === 'visible') {
+                document.removeEventListener('visibilitychange', onVis);
+                tryPlay();
+            }
+        });
+    }
+}
