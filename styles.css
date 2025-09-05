@@ -500,6 +500,45 @@
     z-index: 25 !important;
 }
 
+/* Estados del botón RSVP */
+#rsvp-submit-btn {
+    transition: all 0.3s ease;
+}
+
+#rsvp-submit-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+/* Botón cuando está completo (todos los campos llenos) */
+#rsvp-submit-btn.complete {
+    background: linear-gradient(135deg, #FF5CFF, #00FFFF);
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 92, 255, 0.5);
+}
+
+#rsvp-submit-btn.complete:hover {
+    background: linear-gradient(135deg, #FF7CFF, #20FFFF);
+    box-shadow: 0 0 30px rgba(255, 92, 255, 0.7);
+}
+
+/* Botón cuando está enviando */
+#rsvp-submit-btn.sending {
+    background: #666;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
 /* Mensaje de éxito */
 #success-message {
     animation: success-fade-in 0.5s ease-in-out;

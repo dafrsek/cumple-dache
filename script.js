@@ -46,6 +46,53 @@ document.addEventListener('DOMContentLoaded', function() {
     initMusicGate();
     const form = document.getElementById('rsvp-form');
     const successMessage = document.getElementById('success-message');
+    const submitBtn = document.getElementById('rsvp-submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoader = document.getElementById('btn-loader');
+
+    // Elementos del formulario para validación
+    const nameInput = document.getElementById('name');
+    const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+    const commentTextarea = document.getElementById('comment');
+
+    // Función para validar si el formulario está completo
+    function validateForm() {
+        const nameFilled = nameInput.value.trim() !== '';
+        const attendanceSelected = Array.from(attendanceRadios).some(radio => radio.checked);
+        
+        if (nameFilled && attendanceSelected) {
+            submitBtn.classList.add('complete');
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.classList.remove('complete');
+            submitBtn.disabled = true;
+        }
+    }
+
+    // Función para mostrar estado de envío
+    function setSendingState(isSending) {
+        if (isSending) {
+            submitBtn.classList.add('sending');
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+        } else {
+            submitBtn.classList.remove('sending');
+            submitBtn.disabled = false;
+            btnText.classList.remove('hidden');
+            btnLoader.classList.add('hidden');
+        }
+    }
+
+    // Event listeners para validación en tiempo real
+    nameInput.addEventListener('input', validateForm);
+    attendanceRadios.forEach(radio => {
+        radio.addEventListener('change', validateForm);
+    });
+    commentTextarea.addEventListener('input', validateForm);
+
+    // Validación inicial
+    validateForm();
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -62,17 +109,140 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Simular envío a Formspree (reemplazar con tu endpoint real)
-        submitToFormspree(formData);
+        // Mostrar estado de envío
+        setSendingState(true);
+
+        // Enviar con sistema híbrido (rápido + respaldo)
+        submitWithHybridSystem(formData);
     });
 });
+
+// Sistema híbrido: respuesta inmediata + envío en segundo plano
+async function submitWithHybridSystem(formData) {
+    // 1. Guardar inmediatamente en localStorage (instantáneo)
+    const data = {
+        timestamp: new Date().toLocaleString('es-ES'),
+        name: formData.get('name'),
+        attendance: formData.get('attendance') === 'yes' ? 'Sí voy' : '¡Claro que voy!',
+        comment: formData.get('comment') || 'Sin comentario'
+    };
+    
+    // Guardar localmente primero (instantáneo)
+    const existingRSVPs = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+    existingRSVPs.push(data);
+    localStorage.setItem('rsvp_responses', JSON.stringify(existingRSVPs));
+    
+    // 2. Mostrar éxito inmediatamente
+    console.log('✅ RSVP guardado localmente');
+    showSuccessMessage();
+    document.getElementById('rsvp-form').reset();
+    
+    // 3. Resetear botón inmediatamente
+    setTimeout(() => {
+        const submitBtn = document.getElementById('rsvp-submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoader = document.getElementById('btn-loader');
+        
+        submitBtn.classList.remove('sending');
+        submitBtn.disabled = false;
+        btnText.classList.remove('hidden');
+        btnLoader.classList.add('hidden');
+    }, 300); // Solo 300ms para el efecto visual
+    
+    // 4. Enviar a Google Sheets en segundo plano (sin bloquear UI)
+    setTimeout(async () => {
+        try {
+            await submitToGoogleSheets(formData);
+            console.log('📤 RSVP sincronizado con Google Sheets');
+        } catch (error) {
+            console.log('⚠️ No se pudo sincronizar con Google Sheets, pero está guardado localmente');
+        }
+    }, 100); // Enviar después de 100ms
+}
+
+// Función para enviar a Google Sheets (SIN LÍMITES)
+async function submitToGoogleSheets(formData) {
+    // REEMPLAZAR CON EL ID DE TU GOOGLE SHEET:
+    const SHEET_ID = 'AKfycbyzFCXLKJXktA1z7I1hd47Fdkn1KND-vLD9CXk1Gsa75XTVAFKeZmFKmchGSSdT_R8j7w';
+    
+    if (SHEET_ID.includes('tu_sheet_id_aqui')) {
+        console.log('⚠️ Google Sheets no configurado. Usando Formspree como respaldo.');
+        submitToFormspree(formData);
+        return;
+    }
+    
+    // Preparar datos para Google Sheets
+    const data = {
+        timestamp: new Date().toLocaleString('es-ES'),
+        name: formData.get('name'),
+        attendance: formData.get('attendance') === 'yes' ? 'Sí voy' : '¡Claro que voy!',
+        comment: formData.get('comment') || 'Sin comentario'
+    };
+
+    // Enviar a Google Apps Script (versión simplificada y rápida)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // Solo 3 segundos timeout
+    
+    const response = await fetch(`https://script.google.com/macros/s/${SHEET_ID}/exec`, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+    return response;
+}
+
+// Función para enviar por EmailJS directamente a tu Gmail
+async function submitToEmailJS(formData) {
+    // REEMPLAZAR CON TUS DATOS DE EMAILJS:
+    const serviceID = 'service_tu_service_id'; // Ejemplo: service_abc123
+    const templateID = 'template_tu_template_id'; // Ejemplo: template_xyz789
+    const publicKey = 'tu_public_key'; // Ejemplo: user_abcdef123456
+    
+    // Verificar si está configurado
+    if (serviceID.includes('service_tu_service_id')) {
+        console.log('⚠️ EmailJS no configurado. Usando Formspree como respaldo.');
+        submitToFormspree(formData);
+        return;
+    }
+    
+    try {
+        // Preparar datos para el email
+        const templateParams = {
+            from_name: formData.get('name'),
+            attendance: formData.get('attendance') === 'yes' ? 'Sí voy' : '¡Claro que voy!',
+            message: formData.get('comment') || 'Sin comentario',
+            reply_to: 'noreply@cumple-dache.com'
+        };
+
+        // Enviar email usando EmailJS
+        const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+        
+        if (response.status === 200) {
+            console.log('✅ RSVP enviado a tu Gmail exitosamente');
+            showSuccessMessage();
+            document.getElementById('rsvp-form').reset();
+        } else {
+            throw new Error('Error en respuesta de EmailJS');
+        }
+    } catch (error) {
+        console.log('❌ Error al enviar por EmailJS:', error);
+        console.log('🔄 Intentando con Formspree como respaldo...');
+        submitToFormspree(formData);
+    }
+}
 
 // Función para enviar a Formspree
 async function submitToFormspree(formData) {
     const endpoint = 'https://formspree.io/f/xnnbowej';
     
     // Verificar si el endpoint está configurado
-    if (endpoint.includes('TU_ENDPOINT_FORMSPREE')) {
+    if (endpoint.includes('https://formspree.io/f/xnnbowej')) {
         console.log('⚠️ Endpoint de Formspree no configurado. Usando sistema de respaldo.');
         handleFormSubmission(formData);
         return;
@@ -91,6 +261,18 @@ async function submitToFormspree(formData) {
             console.log('✅ RSVP enviado exitosamente');
             showSuccessMessage();
             document.getElementById('rsvp-form').reset();
+            
+            // Resetear estado del botón después del éxito
+            setTimeout(() => {
+                const submitBtn = document.getElementById('rsvp-submit-btn');
+                const btnText = document.getElementById('btn-text');
+                const btnLoader = document.getElementById('btn-loader');
+                
+                submitBtn.classList.remove('sending');
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }, 1000);
         } else {
             console.log('❌ Error en respuesta del servidor');
             handleFormSubmission(formData);
@@ -124,6 +306,18 @@ function handleFormSubmission(formData) {
     // Mostrar mensaje de éxito
     showSuccessMessage();
     document.getElementById('rsvp-form').reset();
+    
+    // Resetear estado del botón después del éxito
+    setTimeout(() => {
+        const submitBtn = document.getElementById('rsvp-submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoader = document.getElementById('btn-loader');
+        
+        submitBtn.classList.remove('sending');
+        submitBtn.disabled = false;
+        btnText.classList.remove('hidden');
+        btnLoader.classList.add('hidden');
+    }, 1000);
     
     // Opcional: Mostrar datos en consola para debugging
     console.log('📝 RSVP guardado localmente:', rsvpData);
@@ -407,13 +601,49 @@ function exportRSVPs() {
     URL.revokeObjectURL(url);
 }
 
+// Función para sincronizar datos pendientes con Google Sheets
+async function syncPendingData() {
+    const storedRSVPs = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+    const pendingRSVPs = storedRSVPs.filter(rsvp => !rsvp.synced);
+    
+    if (pendingRSVPs.length === 0) {
+        console.log('✅ Todos los RSVPs están sincronizados');
+        return;
+    }
+    
+    console.log(`📤 Sincronizando ${pendingRSVPs.length} RSVPs pendientes...`);
+    
+    for (const rsvp of pendingRSVPs) {
+        try {
+            const formData = new FormData();
+            formData.append('name', rsvp.name);
+            formData.append('attendance', rsvp.attendance === 'Sí voy' ? 'yes' : 'definitely');
+            formData.append('comment', rsvp.comment);
+            
+            await submitToGoogleSheets(formData);
+            rsvp.synced = true;
+            console.log(`✅ RSVP de ${rsvp.name} sincronizado`);
+        } catch (error) {
+            console.log(`❌ Error sincronizando RSVP de ${rsvp.name}:`, error);
+        }
+    }
+    
+    // Actualizar localStorage con el estado de sincronización
+    localStorage.setItem('rsvp_responses', JSON.stringify(storedRSVPs));
+}
+
+// Sincronizar automáticamente cada 30 segundos
+setInterval(syncPendingData, 30000);
+
 // Hacer las funciones disponibles globalmente para debugging
 window.viewStoredRSVPs = viewStoredRSVPs;
 window.exportRSVPs = exportRSVPs;
+window.syncPendingData = syncPendingData;
 
 console.log('🎉 ¡Cumple Dache está listo para la farra! 🎉');
 console.log('💡 Para ver RSVPs guardados: viewStoredRSVPs()');
-console.log('💡 Para exportar RSVPs: exportRSVPs()'); 
+console.log('💡 Para exportar RSVPs: exportRSVPs()');
+console.log('💡 Para sincronizar datos pendientes: syncPendingData()'); 
 
 // ============================
 // Música: Gate + Control global
