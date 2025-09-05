@@ -457,12 +457,21 @@
     transform: translateY(-10px);
 }
 
-/* Formulario RSVP */
+/* Formulario RSVP - Asegurar interactividad completa */
+#rsvp-form {
+    position: relative;
+    z-index: 20 !important;
+    pointer-events: auto !important;
+}
+
 #rsvp-form input[type="text"],
 #rsvp-form textarea {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25 !important;
 }
 
 #rsvp-form input[type="text"]:focus,
@@ -474,6 +483,21 @@
 #rsvp-form input[type="radio"] {
     accent-color: var(--neon-pink);
     transform: scale(1.2);
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25 !important;
+}
+
+#rsvp-form label {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25 !important;
+}
+
+#rsvp-form button {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25 !important;
 }
 
 /* Mensaje de éxito */
@@ -1172,6 +1196,17 @@ section h3,
   position: relative;
   overflow: visible;
   z-index: 2; /* eleva toda la tarjeta para que la polaroid no quede debajo de otras */
+}
+
+/* Asegurar que la sección RSVP sea completamente interactiva */
+section#rsvp {
+  pointer-events: auto !important;
+}
+
+section#rsvp .container {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 15 !important;
 }
 
 /* Contenedor de polaroid: marco blanco, sombra y pequeño borde inferior extra */

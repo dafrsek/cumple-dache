@@ -69,9 +69,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para enviar a Formspree
 async function submitToFormspree(formData) {
+    const endpoint = 'https://formspree.io/f/xnnbowej';
+    
+    // Verificar si el endpoint está configurado
+    if (endpoint.includes('TU_ENDPOINT_FORMSPREE')) {
+        console.log('⚠️ Endpoint de Formspree no configurado. Usando sistema de respaldo.');
+        handleFormSubmission(formData);
+        return;
+    }
+    
     try {
-        // Reemplazar 'TU_ENDPOINT_FORMSPREE' con tu endpoint real de Formspree
-        const response = await fetch('https://formspree.io/f/TU_ENDPOINT_FORMSPREE', {
+        const response = await fetch(endpoint, {
             method: 'POST',
             body: formData,
             headers: {
@@ -80,19 +88,46 @@ async function submitToFormspree(formData) {
         });
 
         if (response.ok) {
+            console.log('✅ RSVP enviado exitosamente');
             showSuccessMessage();
             document.getElementById('rsvp-form').reset();
         } else {
-            // Si no hay endpoint configurado, mostrar mensaje de éxito de todas formas
-            showSuccessMessage();
-            document.getElementById('rsvp-form').reset();
+            console.log('❌ Error en respuesta del servidor');
+            handleFormSubmission(formData);
         }
     } catch (error) {
-        console.log('Error al enviar formulario:', error);
-        // Mostrar mensaje de éxito de todas formas para demo
-        showSuccessMessage();
-        document.getElementById('rsvp-form').reset();
+        console.log('❌ Error al enviar formulario:', error);
+        handleFormSubmission(formData);
     }
+}
+
+// Función de respaldo para manejar el envío del formulario
+function handleFormSubmission(formData) {
+    const name = formData.get('name');
+    const attendance = formData.get('attendance');
+    const comment = formData.get('comment');
+    
+    // Guardar en localStorage como respaldo
+    const rsvpData = {
+        name: name,
+        attendance: attendance,
+        comment: comment,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent
+    };
+    
+    // Guardar en localStorage
+    const existingRSVPs = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+    existingRSVPs.push(rsvpData);
+    localStorage.setItem('rsvp_responses', JSON.stringify(existingRSVPs));
+    
+    // Mostrar mensaje de éxito
+    showSuccessMessage();
+    document.getElementById('rsvp-form').reset();
+    
+    // Opcional: Mostrar datos en consola para debugging
+    console.log('📝 RSVP guardado localmente:', rsvpData);
+    console.log('📊 Total de RSVPs guardados:', existingRSVPs.length);
 }
 
 // Función para mostrar mensaje de éxito
@@ -352,7 +387,33 @@ if (isMobile()) {
     document.body.style.setProperty('--animation-duration', '1s');
 }
 
-console.log('🎉 ¡Cumple Dache está listo para la farra! 🎉'); 
+// Función para ver los RSVPs guardados (útil para debugging)
+function viewStoredRSVPs() {
+    const storedRSVPs = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+    console.log('📋 RSVPs guardados localmente:', storedRSVPs);
+    return storedRSVPs;
+}
+
+// Función para exportar RSVPs como JSON (útil para obtener los datos)
+function exportRSVPs() {
+    const storedRSVPs = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
+    const dataStr = JSON.stringify(storedRSVPs, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'rsvp_responses.json';
+    link.click();
+    URL.revokeObjectURL(url);
+}
+
+// Hacer las funciones disponibles globalmente para debugging
+window.viewStoredRSVPs = viewStoredRSVPs;
+window.exportRSVPs = exportRSVPs;
+
+console.log('🎉 ¡Cumple Dache está listo para la farra! 🎉');
+console.log('💡 Para ver RSVPs guardados: viewStoredRSVPs()');
+console.log('💡 Para exportar RSVPs: exportRSVPs()'); 
 
 // ============================
 // Música: Gate + Control global

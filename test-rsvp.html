@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test RSVP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Formulario RSVP - Asegurar interactividad completa */
+        #rsvp-form {
+            position: relative;
+            z-index: 20 !important;
+            pointer-events: auto !important;
+        }
+
+        #rsvp-form input[type="text"],
+        #rsvp-form textarea {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 25 !important;
+        }
+
+        #rsvp-form input[type="text"]:focus,
+        #rsvp-form textarea:focus {
+            box-shadow: 0 0 20px rgba(255, 92, 255, 0.6);
+            transform: scale(1.02);
+        }
+
+        #rsvp-form input[type="radio"] {
+            accent-color: #FF5CFF;
+            transform: scale(1.2);
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 25 !important;
+        }
+
+        #rsvp-form label {
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 25 !important;
+        }
+
+        #rsvp-form button {
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 25 !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-white p-8">
+    <div class="max-w-2xl mx-auto bg-black/40 border border-gray-500 rounded-xl p-8 backdrop-blur-sm">
+        <h2 class="text-3xl text-gray-200 mb-10 text-center font-bold">Test RSVP</h2>
+        <form id="rsvp-form" class="space-y-8">
+            <div>
+                <label for="name" class="block text-xl font-bold mb-3 text-gray-300">Nombre</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    class="w-full px-6 py-4 bg-black/60 border border-gray-500 rounded-lg text-lg text-white shadow-md focus:border-gray-400 focus:ring-2 focus:ring-gray-400 outline-none transition-all"
+                    placeholder="Tu nombre completo"
+                >
+            </div>
+            <div>
+                <label class="block text-xl font-bold mb-3 text-gray-300">¿Asistirás?</label>
+                <div class="space-y-3">
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="radio" name="attendance" value="yes" required class="w-5 h-5 accent-gray-300 border-gray-400">
+                        <span class="text-lg text-gray-200">Sí voy</span>
+                    </label>
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="radio" name="attendance" value="definitely" required class="w-5 h-5 accent-gray-300 border-gray-400">
+                        <span class="text-lg text-gray-200">¡Claro que voy!</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label for="comment" class="block text-xl font-bold mb-3 text-gray-300">Comentario (opcional)</label>
+                <textarea 
+                    id="comment" 
+                    name="comment" 
+                    rows="4"
+                    class="w-full px-6 py-4 bg-black/60 border border-gray-500 rounded-lg text-lg text-white shadow-md resize-none focus:border-gray-400 focus:ring-2 focus:ring-gray-400 outline-none transition-all"
+                    placeholder="¿Algo que quieras decirme?"
+                ></textarea>
+            </div>
+            <button 
+                type="submit"
+                class="w-full py-4 px-8 text-lg rounded-lg bg-gray-300 text-black shadow-lg hover:bg-gray-200 hover:shadow-[0_0_20px_#ffffff33] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
+            >
+                Confirmar Asistencia
+            </button>
+        </form>
+        <div id="success-message" class="hidden mt-8 p-6 bg-green-900/50 border-2 border-green-500 rounded-lg text-center">
+            <p class="text-2xl font-bold text-green-400">¡Gracias por confirmar!</p>
+            <p class="text-lg text-gray-300 mt-2">Nos vemos en la farra 🎉</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('rsvp-form');
+            const successMessage = document.getElementById('success-message');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Obtener datos del formulario
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const attendance = formData.get('attendance');
+                const comment = formData.get('comment');
+
+                // Validar que se haya seleccionado asistencia
+                if (!attendance) {
+                    alert('Por favor selecciona si asistirás o no.');
+                    return;
+                }
+
+                console.log('Datos del formulario:', { name, attendance, comment });
+                
+                // Mostrar mensaje de éxito
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
