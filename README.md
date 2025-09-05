@@ -204,7 +204,7 @@ Si tienes problemas o quieres personalizar algo específico:
 2. Verifica que todos los archivos estén en la misma carpeta
 3. Asegúrate de que el servidor web esté funcionando
 
-## 🎉 ¡Disfruta tu farra!
+## 🎉 ¡Disfruta tu fiesta!
 
 El sitio está listo para compartir. ¡Que sea una noche legendaria! 🕺💃
 

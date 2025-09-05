@@ -167,6 +167,7 @@ async function submitToGoogleSheets(formData) {
     
     if (SHEET_ID.includes('tu_sheet_id_aqui')) {
         console.log('⚠️ Google Sheets no configurado. Usando Formspree como respaldo.');
+        
         submitToFormspree(formData);
         return;
     }
@@ -640,7 +641,7 @@ window.viewStoredRSVPs = viewStoredRSVPs;
 window.exportRSVPs = exportRSVPs;
 window.syncPendingData = syncPendingData;
 
-console.log('🎉 ¡Cumple Dache está listo para la farra! 🎉');
+console.log('🎉 ¡Cumple Dache está listo para la fiesta! 🎉');
 console.log('💡 Para ver RSVPs guardados: viewStoredRSVPs()');
 console.log('💡 Para exportar RSVPs: exportRSVPs()');
 console.log('💡 Para sincronizar datos pendientes: syncPendingData()'); 
